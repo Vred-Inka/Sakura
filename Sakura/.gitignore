@@ -1,0 +1,5 @@
+.vs/
+*.obj
+Sakura/x64/Debug/
+*.exe
+*.pdb
