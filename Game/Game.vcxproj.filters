@@ -18,19 +18,19 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DrMario\gameplay\Pill.cpp">
+    <ClCompile Include="Game\gameplay\Pill.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DrMario\rendering\PillRenderer.cpp">
+    <ClCompile Include="Game\rendering\PillRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DrMario\states\GameplayState.cpp">
+    <ClCompile Include="Game\states\GameplayState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DrMario\states\MainMenuState.cpp">
+    <ClCompile Include="Game\states\MainMenuState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DrMario\DrMarioGame.cpp">
+    <ClCompile Include="Game\DrMarioGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -293,23 +293,25 @@
     <ClInclude Include="external\include\SDL3\SDL_vulkan.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DrMario\gameplay\Pill.h">
+    <ClInclude Include="Game\gameplay\Pill.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DrMario\rendering\PillRenderer.h">
+    <ClInclude Include="Game\rendering\PillRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DrMario\states\GameplayState.h">
+    <ClInclude Include="Game\states\GameplayState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DrMario\states\MainMenuState.h">
+    <ClInclude Include="Game\states\MainMenuState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DrMario\DrMarioGame.h">
+    <ClInclude Include="Game\DrMarioGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Sakura.md" />
+    <None Include="Game.md" />
+    <None Include="Game.slnx" />
   </ItemGroup>
 </Project>

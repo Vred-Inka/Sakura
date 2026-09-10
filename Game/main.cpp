@@ -2,7 +2,7 @@
 
 #include <Engine/core/Application.h>
 
-#include "DrMario/DrMarioGame.h"
+#include "Game/DrMarioGame.h"
 
 int main(int argc, char* argv[])
 {
