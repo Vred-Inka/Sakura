@@ -1,17 +1,19 @@
 #include <iostream>
 
-#include <Engine/Engine.h>
+#include <Engine/Core/Application.h>
 
 int main(int argc, char* argv[])
 {
-    Engine engine;
-    if (!engine.Init()) {
-        std::cout << "Failed to initialize engine." << std::endl;
-        return 1;
+    //Game
+    Application app;//(game)
+
+    if (!app.Initialize())
+    {
+        return -1;
     }
 
-    engine.Run();
-    engine.Shutdown();
+    app.Run();
+    app.Shutdown();
 
     return 0;
 }

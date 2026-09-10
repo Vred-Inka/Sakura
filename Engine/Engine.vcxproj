@@ -147,7 +147,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Projects\Sakura_Engine\Engine\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);C:\Projects\Sakura_Engine\Engine\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -191,6 +191,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\core\Application.h" />
     <ClInclude Include="external\include\SDL3\SDL.h" />
     <ClInclude Include="external\include\SDL3\SDL_assert.h" />
     <ClInclude Include="external\include\SDL3\SDL_asyncio.h" />
@@ -277,16 +278,16 @@
     <ClInclude Include="external\include\SDL3\SDL_version.h" />
     <ClInclude Include="external\include\SDL3\SDL_video.h" />
     <ClInclude Include="external\include\SDL3\SDL_vulkan.h" />
-    <ClInclude Include="include\Engine\Engine.h" />
-    <ClInclude Include="include\Engine\Input.h" />
-    <ClInclude Include="include\Engine\Window.h" />
-    <ClInclude Include="include\Engine\Scene.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="platform\Window.h" />
+    <ClInclude Include="Engine\rendering\Renderer.h" />
+    <ClInclude Include="Time.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Engine.cpp" />
-    <ClCompile Include="src\Scene.cpp" />
-    <ClCompile Include="src\Input.cpp" />
-    <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="Engine\core\Application.cpp" />
+    <ClCompile Include="Engine\rendering\Renderer.cpp" />
+    <ClCompile Include="platform\Window.cpp" />
+    <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="external\lib\x64\SDL3.dll" />
