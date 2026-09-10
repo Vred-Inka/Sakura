@@ -1,1 +1,9 @@
 Sakura/Sakura/x64/Release/
+Game/Game/x64/Debug/Game.tlog/
+Game/Build/Engine/Intermediate/
+.vs/
+Engine/x64/
+Game/Game/x64/Debug/Game.h.obj.dt.module.json.command
+Game/Game/x64/
+Engine/Debug/Engine.idb
+Engine/Debug/Engine.pdb

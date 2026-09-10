@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "src/Engine.h"
+#include <Engine/Engine.h>
 
 int main(int argc, char* argv[])
 {
