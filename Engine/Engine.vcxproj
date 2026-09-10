@@ -147,7 +147,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);C:\Projects\Sakura_Engine\Engine\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Engine;$(ProjectDir);C:\Projects\Sakura_Engine\Engine\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -192,6 +192,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Engine\core\Application.h" />
+    <ClInclude Include="Engine\framework\IGame.h" />
+    <ClInclude Include="Engine\framework\IState.h" />
+    <ClInclude Include="Engine\platform\input\KeyCodes.h" />
+    <ClInclude Include="Engine\rendering\Color.h" />
     <ClInclude Include="external\include\SDL3\SDL.h" />
     <ClInclude Include="external\include\SDL3\SDL_assert.h" />
     <ClInclude Include="external\include\SDL3\SDL_asyncio.h" />
@@ -279,15 +283,19 @@
     <ClInclude Include="external\include\SDL3\SDL_video.h" />
     <ClInclude Include="external\include\SDL3\SDL_vulkan.h" />
     <ClInclude Include="Engine.h" />
-    <ClInclude Include="platform\Window.h" />
+    <ClInclude Include="Engine\platform\Window.h" />
     <ClInclude Include="Engine\rendering\Renderer.h" />
-    <ClInclude Include="Time.h" />
+    <ClInclude Include="Engine\platform\input\Input.h" />
+    <ClInclude Include="Engine\core\Time.h" />
+    <ClInclude Include="Engine\framework\StateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\core\Application.cpp" />
     <ClCompile Include="Engine\rendering\Renderer.cpp" />
-    <ClCompile Include="platform\Window.cpp" />
-    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Engine\platform\Window.cpp" />
+    <ClCompile Include="Engine\platform\input\Input.cpp" />
+    <ClCompile Include="Engine\core\Time.cpp" />
+    <ClCompile Include="Engine\framework\StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="external\lib\x64\SDL3.dll" />

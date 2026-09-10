@@ -158,9 +158,15 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DrMario\DrMarioGame.cpp" />
+    <ClCompile Include="DrMario\states\GameplayState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="DrMario\rendering\PillRenderer.cpp" />
+    <ClCompile Include="DrMario\gameplay\Pill.cpp" />
+    <ClCompile Include="DrMario\states\MainMenuState.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DrMario\DrMarioGame.h" />
     <ClInclude Include="external\include\SDL3\SDL.h" />
     <ClInclude Include="external\include\SDL3\SDL_assert.h" />
     <ClInclude Include="external\include\SDL3\SDL_asyncio.h" />
@@ -247,7 +253,10 @@
     <ClInclude Include="external\include\SDL3\SDL_version.h" />
     <ClInclude Include="external\include\SDL3\SDL_video.h" />
     <ClInclude Include="external\include\SDL3\SDL_vulkan.h" />
-    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="DrMario\rendering\PillRenderer.h" />
+    <ClInclude Include="DrMario\gameplay\Pill.h" />
+    <ClInclude Include="DrMario\states\GameplayState.h" />
+    <ClInclude Include="DrMario\states\MainMenuState.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Sakura.md" />

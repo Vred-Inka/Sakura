@@ -2,7 +2,7 @@
 class Time
 {
 public:
-	static float Update();
+	static void Update();
 	static float TotalTime();
 	static float GetDeltaTime();
 

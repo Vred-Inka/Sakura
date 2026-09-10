@@ -4,7 +4,7 @@
 
 float Time::s_DeltaTime = 0.0f;
 
-float Time::Update()
+void Time::Update()
 {
 	static Uint64 lastCounter = SDL_GetPerformanceCounter();
 

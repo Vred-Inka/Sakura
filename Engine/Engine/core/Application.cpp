@@ -3,6 +3,13 @@
 #include<SDL3/SDL.h>
 #include <iostream>
 
+#include "Time.h"
+#include "platform/input/Input.h"
+
+Application::Application(IGame& game)
+	: m_Game(game)
+{}
+
 bool Application::Initialize()
 {
 	if (!SDL_Init(SDL_INIT_VIDEO))
@@ -16,28 +23,38 @@ bool Application::Initialize()
 		return false;
 	}
 
-	if (m_Renderer.Create(m_Window))
+	if (!m_Renderer.Create(m_Window))
 	{
 		return false;
 	}
 
+	m_Game.Initialize();
+
 	m_Running = true;
 	return true;
+
 }
 
 void Application::Run()
 {
-	while (m_Running) {
+	while (m_Running)
+	{
 		Time::Update();
+		Input::Update();
 		ProcessEvents();
 
+		const float dt = Time::GetDeltaTime();
+		m_Game.Update(dt);
+
 		m_Renderer.BeginFrame();
+		m_Game.Render(m_Renderer);
 		m_Renderer.EndFrame();
 	}
 }
 
 void Application::Shutdown()
 {
+	m_Game.Shutdown();
 	m_Renderer.Destroy();
 	m_Window.Destroy();
 
@@ -48,15 +65,18 @@ void Application::ProcessEvents()
 {
 	SDL_Event event;
 
-	while (SDL_PollEvent(&event)) {
-		
-		switch (event.type)
+	while (SDL_PollEvent(&event))
+	{		
+		if (event.type == SDL_EVENT_QUIT)
 		{
-		case SDL_EVENT_QUIT:
 			m_Running = false;
-			break;
-		default:
-			break;
 		}
+
+		if (event.key.key == SDLK_ESCAPE)
+		{
+			Shutdown();
+		}
+
+		Input::ProcessEvent(event);
 	}
 }

@@ -1,11 +1,13 @@
 #include <iostream>
 
-#include <Engine/Core/Application.h>
+#include <Engine/core/Application.h>
+
+#include "DrMario/DrMarioGame.h"
 
 int main(int argc, char* argv[])
 {
-    //Game
-    Application app;//(game)
+    DrMarioGame game;
+    Application app(game);
 
     if (!app.Initialize())
     {
@@ -13,7 +15,7 @@ int main(int argc, char* argv[])
     }
 
     app.Run();
-    app.Shutdown();
+    //app.Shutdown();
 
     return 0;
 }

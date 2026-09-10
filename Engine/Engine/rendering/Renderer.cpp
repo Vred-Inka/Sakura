@@ -1,6 +1,5 @@
 #include "Renderer.h"
 #include <SDL3/SDL.h>
-
 #include <iostream>
 
 #include "platform/Window.h"
@@ -32,4 +31,15 @@ void Renderer::BeginFrame()
 void Renderer::EndFrame()
 {
 	SDL_RenderPresent(m_Renderer);
+}
+
+void Renderer::DrawRect(float x, float y, float width, float height, const Color& color)
+{
+	SDL_FRect rect{ x,y,width,height };
+
+	ColorRGB colorRGB = GetColorRGBFromColor(color);
+
+	SDL_SetRenderDrawColor(m_Renderer, colorRGB.r, colorRGB.g, colorRGB.b, 255);
+
+	SDL_RenderFillRect(m_Renderer, &rect);
 }
