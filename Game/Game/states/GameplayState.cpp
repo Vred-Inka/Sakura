@@ -18,26 +18,19 @@ void GameplayState::Exit()
 
 void GameplayState::Update(float dt)
 {
-	constexpr float Step = 1.0f;
-
 	if (Input::IsKeyDown(Key::Left))
 	{
-		m_Pill.Move(-Step, 0.0f);
+		m_Pill.MoveLeft();
 	}
 
 	if (Input::IsKeyDown(Key::Right))
 	{
-		m_Pill.Move(Step, 0.0f);
-	}
-
-	if (Input::IsKeyDown(Key::Up))
-	{
-		m_Pill.Move(0.0f, -Step);
+		m_Pill.MoveRight();
 	}
 
 	if (Input::IsKeyDown(Key::Down))
 	{
-		m_Pill.Move(0.0f, Step);
+		m_Pill.MoveDown();
 	}
 
 	if (Input::IsKeyDown(Key::Space))

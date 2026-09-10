@@ -3,10 +3,19 @@
 float Pill::s_Width{ 32.0f };
 float Pill::s_Height{ 32.0f };
 
-void Pill::Move(float dx, float dy)
+void Pill::MoveLeft()
 {
-	m_X += dx * s_Width;
-	m_Y += dy * s_Height;
+	m_Position.m_Colomn--;
+}
+
+void Pill::MoveRight()
+{
+	m_Position.m_Colomn++;
+}
+
+void Pill::MoveDown()
+{
+	m_Position.m_Row++;
 }
 
 void Pill::Rotate()

@@ -1,5 +1,6 @@
 #pragma once
 #include <Engine/rendering/Color.h>
+#include "GridPosition.h"
 
 enum class Orientation
 {
@@ -7,16 +8,18 @@ enum class Orientation
 	Vertical
 };
 
-
 struct Pill
 {
 public:
-	void Move(float dx, float dy);
+	void MoveLeft();
+	void MoveRight();
+	void MoveDown();
 
 	void Rotate();
 
-	float GetX() const { return m_X; }
-	float GetY() const { return m_Y; }
+	const GridPosition& GetPosition() const { return m_Position; }
+	float GetX() const { return m_Position.m_Colomn; }
+	float GetY() const { return m_Position.m_Row; }
 	
 	float GetWidth() const{ return s_Width; }
 	float GetHeight() const{ return s_Height; }
@@ -28,8 +31,7 @@ public:
 
 private:
 
-	float m_X = 300.f;
-	float m_Y = 200.f;
+	GridPosition m_Position{ 3,7 };
 
 	static float s_Height;
 	static float s_Width;

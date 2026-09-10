@@ -33,6 +33,12 @@
     <ClCompile Include="Game\DrMarioGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\gameplay\Board.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\rendering\BoardRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\include\SDL3\SDL.h">
@@ -308,9 +314,20 @@
     <ClInclude Include="Game\DrMarioGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\gameplay\Cell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\gameplay\Board.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\rendering\BoardRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\gameplay\GridPosition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sakura.md" />
     <None Include="Game.md" />
     <None Include="Game.slnx" />
   </ItemGroup>

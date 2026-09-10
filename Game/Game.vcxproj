@@ -158,6 +158,8 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\rendering\BoardRenderer.cpp" />
+    <ClCompile Include="Game\gameplay\Board.cpp" />
     <ClCompile Include="Game\DrMarioGame.cpp" />
     <ClCompile Include="Game\states\GameplayState.cpp" />
     <ClCompile Include="Game\gameplay\Pill.cpp" />
@@ -166,6 +168,10 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\gameplay\GridPosition.h" />
+    <ClInclude Include="Game\rendering\BoardRenderer.h" />
+    <ClInclude Include="Game\gameplay\Board.h" />
+    <ClInclude Include="Game\gameplay\Cell.h" />
     <ClInclude Include="external\include\SDL3\SDL.h" />
     <ClInclude Include="external\include\SDL3\SDL_assert.h" />
     <ClInclude Include="external\include\SDL3\SDL_asyncio.h" />
@@ -259,9 +265,7 @@
     <ClInclude Include="Game\DrMarioGame.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Game.md" />
     <None Include="Game.slnx" />
-    <None Include="Sakura.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
