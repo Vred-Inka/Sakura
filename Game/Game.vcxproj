@@ -158,6 +158,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\systems\FallingSystem.cpp" />
     <ClCompile Include="Game\rendering\BoardRenderer.cpp" />
     <ClCompile Include="Game\gameplay\Board.cpp" />
     <ClCompile Include="Game\DrMarioGame.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\systems\FallingSystem.h" />
     <ClInclude Include="Game\gameplay\GridPosition.h" />
     <ClInclude Include="Game\rendering\BoardRenderer.h" />
     <ClInclude Include="Game\gameplay\Board.h" />

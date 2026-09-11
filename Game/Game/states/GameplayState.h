@@ -1,7 +1,9 @@
 #pragma once
 #include <Engine/framework/IState.h>
 
+#include "../gameplay/Board.h"
 #include "../gameplay/Pill.h"
+#include "../systems/FallingSystem.h"
 
 class Renderer;
 
@@ -14,7 +16,12 @@ public:
 	void Update(float dt) override;
 	void Render(Renderer& renderer) override;
 
+	void HandleInput();
+
 private:
-	Pill m_Pill;
+	Pill m_ActivePill{};
+	Board m_Board{};
+
+	FallingSystem m_FallingSystem{};
 };
 

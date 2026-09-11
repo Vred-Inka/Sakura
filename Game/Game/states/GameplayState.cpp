@@ -18,28 +18,44 @@ void GameplayState::Exit()
 
 void GameplayState::Update(float dt)
 {
-	if (Input::IsKeyDown(Key::Left))
-	{
-		m_Pill.MoveLeft();
-	}
+	HandleInput();
 
-	if (Input::IsKeyDown(Key::Right))
-	{
-		m_Pill.MoveRight();
-	}
-
-	if (Input::IsKeyDown(Key::Down))
-	{
-		m_Pill.MoveDown();
-	}
-
-	if (Input::IsKeyDown(Key::Space))
-	{
-		m_Pill.Rotate();
-	}
+	m_FallingSystem.Update(dt, m_Board, m_ActivePill);	
 }
 
 void GameplayState::Render(Renderer& renderer)
 {
-	PillRenderer::Draw(renderer, m_Pill);
+	PillRenderer::Draw(renderer, m_ActivePill);
+}
+
+void GameplayState::HandleInput()
+{
+	if (Input::IsKeyDown(Key::Left))
+	{
+		if (m_Board.CanMoveLeft(m_ActivePill))
+		{
+			m_ActivePill.MoveLeft();
+		}
+	}
+
+	if (Input::IsKeyDown(Key::Right))
+	{
+		if (m_Board.CanMoveLeft(m_ActivePill))
+		{
+			m_ActivePill.MoveRight();
+		}
+	}
+
+	if (Input::IsKeyDown(Key::Down))
+	{
+		if (m_Board.CanMoveLeft(m_ActivePill))
+		{
+			m_ActivePill.MoveDown();
+		}
+	}
+
+	if (Input::IsKeyDown(Key::Space))
+	{
+		m_ActivePill.Rotate();
+	}
 }

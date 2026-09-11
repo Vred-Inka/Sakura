@@ -18,7 +18,7 @@ public:
 	void Rotate();
 
 	const GridPosition& GetPosition() const { return m_Position; }
-	float GetX() const { return m_Position.m_Colomn; }
+	float GetX() const { return m_Position.m_Column; }
 	float GetY() const { return m_Position.m_Row; }
 	
 	float GetWidth() const{ return s_Width; }

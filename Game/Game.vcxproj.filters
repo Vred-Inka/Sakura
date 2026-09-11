@@ -39,6 +39,9 @@
     <ClCompile Include="Game\rendering\BoardRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\systems\FallingSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\include\SDL3\SDL.h">
@@ -324,6 +327,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\gameplay\GridPosition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\systems\FallingSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

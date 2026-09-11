@@ -8,7 +8,7 @@ public:
 	const Color& GetColor() const { return color; };
 
 private:
-	bool m_Occupied = true;
+	bool m_Occupied = false;
 	Color color;
 };
 

@@ -5,12 +5,12 @@ float Pill::s_Height{ 32.0f };
 
 void Pill::MoveLeft()
 {
-	m_Position.m_Colomn--;
+	m_Position.m_Column--;
 }
 
 void Pill::MoveRight()
 {
-	m_Position.m_Colomn++;
+	m_Position.m_Column++;
 }
 
 void Pill::MoveDown()
