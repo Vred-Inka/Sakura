@@ -14,7 +14,8 @@ enum class Color
 {
 	Magenta,
 	Blue, 
-	Yellow
+	Yellow,
+	Black
 };
 
 

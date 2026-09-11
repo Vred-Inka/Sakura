@@ -44,6 +44,14 @@ bool Board::CanMoveDown(const Pill& pill) const
 	return true;
 }
 
-void Board::LockPill()
+void Board::LockPill(Pill& pill)
 {
+	if (pill.GetOrientation() == Orientation::Horizontal)
+	{
+		m_Cells[pill.GetX()][pill.GetY()].SetOccupied();		
+		m_Cells[pill.GetX()][pill.GetY()].SetColor(pill.GetLeftColor());
+
+		m_Cells[pill.GetX() + 1][pill.GetY()].SetOccupied();
+		m_Cells[pill.GetX()][pill.GetY()].SetColor(pill.GetLeftColor());
+	}
 }

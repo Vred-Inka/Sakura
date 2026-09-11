@@ -2,10 +2,16 @@
 class Board;
 class Pill;
 
+enum class FallResult
+{
+	None,
+	Locked
+};
+
 class FallingSystem
 {
 public:
-	void Update(float dt, Board& board, Pill& pill);
+	FallResult Update(float dt, Board& board, Pill& pill);
 
 private:
 	float m_Timer = 0.0f;

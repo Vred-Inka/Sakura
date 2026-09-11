@@ -18,6 +18,8 @@ public:
 
 	void HandleInput();
 
+	void SpawnNewPill();
+
 private:
 	Pill m_ActivePill{};
 	Board m_Board{};

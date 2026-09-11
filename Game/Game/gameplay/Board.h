@@ -9,6 +9,8 @@ class Board
 public:
 	static constexpr int s_Width = 8;
 	static constexpr int s_Height = 16;
+
+	const Cell& GetCell(int column, int row) const { return m_Cells[column][row]; }
 	
 	bool IsCellOccupied(const GridPosition& position)const;
 	bool IsCellOccupied(int column, int row) const;
@@ -17,7 +19,7 @@ public:
 	bool CanMoveRight(const Pill& pill) const;
 	bool CanMoveDown(const Pill& pill) const;
 
-	void LockPill();
+	void LockPill(Pill& pill);
 
 private:
 	Cell m_Cells[s_Height][s_Width];

@@ -8,7 +8,7 @@ enum class Orientation
 	Vertical
 };
 
-struct Pill
+class Pill
 {
 public:
 	void MoveLeft();
@@ -18,8 +18,11 @@ public:
 	void Rotate();
 
 	const GridPosition& GetPosition() const { return m_Position; }
-	float GetX() const { return m_Position.m_Column; }
-	float GetY() const { return m_Position.m_Row; }
+	int GetX() const { return m_Position.m_Column; }
+	int GetY() const { return m_Position.m_Row; }
+
+	void SetPosition(int column, int row) { m_Position.m_Column = column; 
+											m_Position.m_Row = row; }
 	
 	float GetWidth() const{ return s_Width; }
 	float GetHeight() const{ return s_Height; }
