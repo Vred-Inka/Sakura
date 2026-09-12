@@ -10,6 +10,13 @@ public:
 	static constexpr int s_Width = 8;
 	static constexpr int s_Height = 16;
 
+
+	static constexpr float s_CellSize = 32.0f;
+
+	static constexpr float s_BorderX = 100.0f;
+	static constexpr float s_BorderY = 50.0f;
+
+
 	const Cell& GetCell(int column, int row) const { return m_Cells[column][row]; }
 	
 	bool IsCellOccupied(const GridPosition& position)const;
@@ -22,6 +29,6 @@ public:
 	void LockPill(Pill& pill);
 
 private:
-	Cell m_Cells[s_Height][s_Width];
+	Cell m_Cells[s_Width][s_Height];
 };
 

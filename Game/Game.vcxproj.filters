@@ -334,7 +334,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Game.md" />
     <None Include="Game.slnx" />
   </ItemGroup>
 </Project>

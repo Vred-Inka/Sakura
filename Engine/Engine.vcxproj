@@ -147,7 +147,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)Engine;$(ProjectDir);C:\Projects\Sakura_Engine\Engine\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Engine;$(ProjectDir);$(ProjectDir)external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -158,9 +158,8 @@
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
     <Lib>
-      <AdditionalLibraryDirectories>SDL3.lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Buid\Engine\$(Configuration);$(ProjectDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL3.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

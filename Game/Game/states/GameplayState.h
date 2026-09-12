@@ -1,6 +1,8 @@
 #pragma once
 #include <Engine/framework/IState.h>
 
+#include <random>
+
 #include "../gameplay/Board.h"
 #include "../gameplay/Pill.h"
 #include "../systems/FallingSystem.h"
@@ -19,6 +21,13 @@ public:
 	void HandleInput();
 
 	void SpawnNewPill();
+
+	Color GetRandomColor()
+	{
+		static std::mt19937 rng(std::random_device{}());
+		std::uniform_int_distribution<int> dist(0, 2);
+		return static_cast<Color>(dist(rng));
+	}
 
 private:
 	Pill m_ActivePill{};

@@ -30,11 +30,14 @@ public:
 	const Color& GetLeftColor() const { return m_LeftColor; }
 	const Color& GetRightColor() const { return m_RightColor; }
 
+	void SetLeftColor(Color color) { m_LeftColor = color; }
+	void SetRightColor(Color color) { m_RightColor = color; }
+
 	Orientation GetOrientation() const { return m_Orientation; }
 
 private:
 
-	GridPosition m_Position{ 3,7 };
+	GridPosition m_Position{ 0,4 };
 
 	static float s_Height;
 	static float s_Width;
