@@ -167,10 +167,12 @@
     <ClCompile Include="Game\rendering\PillRenderer.cpp" />
     <ClCompile Include="Game\states\MainMenuState.cpp" />
     <ClCompile Include="Game\systems\MatchResult.h" />
+    <ClCompile Include="Game\systems\GravitySystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game\systems\MatchingSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\rendering\ColorWraper.h" />
     <ClInclude Include="Game\systems\FallingSystem.h" />
     <ClInclude Include="Game\gameplay\GridPosition.h" />
     <ClInclude Include="Game\rendering\BoardRenderer.h" />
@@ -268,6 +270,7 @@
     <ClInclude Include="Game\states\MainMenuState.h" />
     <ClInclude Include="Game\DrMarioGame.h" />
     <ClInclude Include="Game\systems\MatchingSystem.h" />
+    <ClInclude Include="Game\systems\GravitySystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Game.slnx" />

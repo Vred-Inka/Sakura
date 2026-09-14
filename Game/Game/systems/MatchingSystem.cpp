@@ -37,7 +37,6 @@ MatchResult MatchingSystem::FindMatches(Board& board)
                     for (int i = 0; i < length; i++)
                     {
                         result.m_MatchedCells[col][start + i] = true;
-                        board.GetCell(col,start + i).SetColor(Color::Green);
                     }
                 }
             }
@@ -78,7 +77,6 @@ MatchResult MatchingSystem::FindMatches(Board& board)
                     for (int i = 0; i < length; i++)
                     {
                         result.m_MatchedCells[start + i][row] = true;
-                        board.GetCell(start + i, row).SetColor(Color::Green);
                     }
                 }
             }
@@ -88,10 +86,7 @@ MatchResult MatchingSystem::FindMatches(Board& board)
                 length = 1;
             }
         }
-
-
     }
-
 
     return result;
 }

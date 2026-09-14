@@ -27,6 +27,6 @@ void Pill::Rotate()
 	else
 	{
 		m_Orientation = Orientation::Horizontal;
-		std::swap(m_LeftColor, m_RightColor);
+		std::swap(m_FirstColor, m_SecondColor);
 	}
 }

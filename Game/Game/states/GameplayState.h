@@ -7,6 +7,7 @@
 #include "../gameplay/Pill.h"
 #include "../systems/FallingSystem.h"
 #include "../systems/MatchingSystem.h"
+#include "../systems/GravitySystem.h"
 
 class Renderer;
 
@@ -23,6 +24,8 @@ public:
 
 	void SpawnNewPill();
 
+	void GameOver();
+
 	Color GetRandomColor()
 	{
 		static std::mt19937 rng(std::random_device{}());
@@ -36,5 +39,6 @@ private:
 
 	FallingSystem m_FallingSystem{};
 	MatchingSystem m_MatchingSystem{};
+	GravitySystem m_GravitySystem{};
 };
 

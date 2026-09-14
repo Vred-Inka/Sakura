@@ -10,10 +10,7 @@ class Board
 public:
 	static constexpr int s_Width = 8;
 	static constexpr int s_Height = 16;
-
-
 	static constexpr float s_CellSize = 32.0f;
-
 	static constexpr float s_BorderX = 100.0f;
 	static constexpr float s_BorderY = 50.0f;
 
@@ -28,7 +25,12 @@ public:
 	bool CanMoveRight(const Pill& pill) const;
 	bool CanMoveDown(const Pill& pill) const;
 
+	bool CanSpawnPill() const;
+
+	void MoveCell(int oldCol, int oldRow, int col, int row);
+
 	void LockPill(Pill& pill);
+	void BreakCellConnections(int col, int row);
 
 	void RemoveMatches(const MatchResult& result);
 

@@ -20,7 +20,7 @@ public:
 		float y,
 		float width,
 		float height,
-		const Color& color
+		const ColorRGB& color
 		);
 
 private:

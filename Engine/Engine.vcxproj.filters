@@ -306,6 +306,9 @@
     <ClInclude Include="Engine\rendering\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\platform\Window.cpp">
@@ -324,6 +327,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\framework\StateMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -106,7 +106,7 @@
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
     <Lib>
-      <AdditionalLibraryDirectories>SDL3.lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
       <AdditionalDependencies>
       </AdditionalDependencies>
     </Lib>
@@ -133,7 +133,7 @@
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
     <Lib>
-      <AdditionalLibraryDirectories>SDL3.lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
       <AdditionalDependencies>
       </AdditionalDependencies>
     </Lib>
@@ -158,7 +158,7 @@
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)Buid\Engine\$(Configuration);$(ProjectDir)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL3.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
@@ -184,7 +184,7 @@
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
     <Lib>
-      <AdditionalLibraryDirectories>SDL3.lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
       <AdditionalDependencies>
       </AdditionalDependencies>
     </Lib>
@@ -287,6 +287,7 @@
     <ClInclude Include="Engine\platform\input\Input.h" />
     <ClInclude Include="Engine\core\Time.h" />
     <ClInclude Include="Engine\framework\StateMachine.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\core\Application.cpp" />
@@ -295,6 +296,7 @@
     <ClCompile Include="Engine\platform\input\Input.cpp" />
     <ClCompile Include="Engine\core\Time.cpp" />
     <ClCompile Include="Engine\framework\StateMachine.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="external\lib\x64\SDL3.dll" />

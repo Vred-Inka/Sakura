@@ -3,7 +3,6 @@
 
 class Board;
 struct CellPosition;
-
 struct MatchResult;
 
 class MatchingSystem

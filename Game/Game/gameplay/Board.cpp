@@ -79,27 +79,44 @@ bool Board::CanMoveDown(const Pill& pill) const
 	return true;
 }
 
+bool Board::CanSpawnPill() const
+{
+	return !IsCellOccupied(3, 0) && !IsCellOccupied(4, 0);
+}
+
+void Board::MoveCell(int oldCol, int oldRow, int col, int row)
+{
+	std::swap(GetCell(oldCol, oldRow), GetCell(col, row));
+}
+
 void Board::LockPill(Pill& pill)
 {
 	if (pill.GetOrientation() == Orientation::Horizontal)
 	{
-		m_Cells[pill.GetX()][pill.GetY()].SetOccupied();
-		m_Cells[pill.GetX()][pill.GetY()].SetColor(pill.GetLeftColor());
-		m_Cells[pill.GetX()][pill.GetY()].SetRelatedCell(&m_Cells[pill.GetX() + 1][pill.GetY()]);
+		Cell& leftHalf = m_Cells[pill.GetX()][ pill.GetY()];
+		Cell& rightHalf = m_Cells[pill.GetX() + 1][ pill.GetY()];
 
-		m_Cells[pill.GetX() + 1][pill.GetY()].SetOccupied();
-		m_Cells[pill.GetX() + 1][pill.GetY()].SetColor(pill.GetRightColor());
-		m_Cells[pill.GetX() + 1][pill.GetY()].SetRelatedCell(&m_Cells[pill.GetX()][pill.GetY()]);
+		leftHalf.SetCellType(CellType::Pill);
+		leftHalf.SetConnection(Connection::Left);
+		leftHalf.SetColor(pill.GetFirstColor());
+
+		rightHalf.SetCellType(CellType::Pill);
+		rightHalf.SetConnection(Connection::Right);
+		rightHalf.SetColor(pill.GetSecondColor());
+
 	}
 	else
 	{
-		m_Cells[pill.GetX()][pill.GetY()].SetOccupied();
-		m_Cells[pill.GetX()][pill.GetY()].SetColor(pill.GetLeftColor());
-		m_Cells[pill.GetX()][pill.GetY()].SetRelatedCell(&m_Cells[pill.GetX()][pill.GetY() - 1]);
+		Cell& downHalf = m_Cells[pill.GetX()][ pill.GetY()];
+		Cell& upHalf = m_Cells[pill.GetX()][ pill.GetY() - 1];
 
-		m_Cells[pill.GetX()][pill.GetY() - 1].SetOccupied();
-		m_Cells[pill.GetX()][pill.GetY() - 1].SetColor(pill.GetRightColor());
-		m_Cells[pill.GetX()][pill.GetY() - 1].SetRelatedCell(&m_Cells[pill.GetX()][pill.GetY()]);
+		upHalf.SetCellType(CellType::Pill);
+		upHalf.SetConnection(Connection::Up);
+		upHalf.SetColor(pill.GetSecondColor());
+
+		downHalf.SetCellType(CellType::Pill);
+		downHalf.SetConnection(Connection::Down);
+		downHalf.SetColor(pill.GetFirstColor());
 	}
 }
 
@@ -115,10 +132,37 @@ void Board::RemoveMatches(const MatchResult& result)
 			if (!result.m_MatchedCells[col][row])
 				continue;
 
-			m_Cells[col][row].SetOccupied(false);
-			m_Cells[col][row].SetColor(Color::Green);
-
+			BreakCellConnections(col, row);
+			m_Cells[col][row].SetCellType(CellType::Empty);
+			m_Cells[col][row].SetColor(Color::Black);
 		}
 
+	}
+}
+
+void Board::BreakCellConnections(int col, int row)
+{
+	Cell& cell = m_Cells[col][row];
+
+	switch (cell.GetConnection())
+	{
+	case Connection::Left:
+		m_Cells[col + 1][row].SetConnection(Connection::None);
+		break;
+
+	case Connection::Right:
+		m_Cells[col - 1][row].SetConnection(Connection::None);
+		break;
+
+	case Connection::Up:
+		m_Cells[col][row + 1].SetConnection(Connection::None);
+		break;
+
+	case Connection::Down:
+		m_Cells[col][row - 1].SetConnection(Connection::None);
+		break;
+
+	default:
+		break;
 	}
 }

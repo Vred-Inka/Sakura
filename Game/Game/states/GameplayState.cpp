@@ -13,6 +13,7 @@
 
 void GameplayState::Enter()
 {
+	SpawnNewPill();
 }
 
 void GameplayState::Exit()
@@ -22,6 +23,9 @@ void GameplayState::Exit()
 
 void GameplayState::Update(float dt)
 {
+	if (m_GravitySystem.Apply(m_Board))
+		return;
+
 	HandleInput();
 
 	FallResult result = m_FallingSystem.Update(dt, m_Board, m_ActivePill);	
@@ -32,12 +36,18 @@ void GameplayState::Update(float dt)
 
 		MatchResult matchResult = m_MatchingSystem.FindMatches(m_Board);
 
-		//if (matchResult.m_HasMatches)
+		if (matchResult.m_HasMatches)
 		{
-			//m_Board.RemoveMatches(matchResult);
-			//m_GravitySystem.Apply(m_Board);
+			m_Board.RemoveMatches(matchResult);
+			matchResult.m_HasMatches = false;
+			m_GravitySystem.Apply(m_Board);
 		}
-		//else
+
+		if (!m_Board.CanSpawnPill())
+		{
+			GameOver();
+		}
+		else
 		{
 			SpawnNewPill();
 		}
@@ -90,7 +100,10 @@ void GameplayState::HandleInput()
 
 void GameplayState::SpawnNewPill()
 {
-	m_ActivePill.SetLeftColor(GetRandomColor());
-	m_ActivePill.SetRightColor(GetRandomColor());
+	m_ActivePill.SetFirstColor(GetRandomColor());
+	m_ActivePill.SetSecondColor(GetRandomColor());
 	m_ActivePill.SetPosition(4, 0);
 }
+
+void GameplayState::GameOver()
+{}

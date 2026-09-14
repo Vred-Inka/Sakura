@@ -33,13 +33,10 @@ void Renderer::EndFrame()
 	SDL_RenderPresent(m_Renderer);
 }
 
-void Renderer::DrawRect(float x, float y, float width, float height, const Color& color)
+void Renderer::DrawRect(float x, float y, float width, float height, const ColorRGB& color)
 {
 	SDL_FRect rect{ x,y,width,height };
-
-	ColorRGB colorRGB = GetColorRGBFromColor(color);
-
-	SDL_SetRenderDrawColor(m_Renderer, colorRGB.r, colorRGB.g, colorRGB.b, 255);
+	SDL_SetRenderDrawColor(m_Renderer, color.r, color.g, color.b, 255);
 
 	SDL_RenderFillRect(m_Renderer, &rect);
 }

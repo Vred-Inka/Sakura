@@ -27,11 +27,11 @@ public:
 	float GetWidth() const{ return s_Width; }
 	float GetHeight() const{ return s_Height; }
 
-	const Color& GetLeftColor() const { return m_LeftColor; }
-	const Color& GetRightColor() const { return m_RightColor; }
+	const Color& GetFirstColor() const { return m_FirstColor; }
+	const Color& GetSecondColor() const { return m_SecondColor; }
 
-	void SetLeftColor(Color color) { m_LeftColor = color; }
-	void SetRightColor(Color color) { m_RightColor = color; }
+	void SetFirstColor(Color color) { m_FirstColor = color; }
+	void SetSecondColor(Color color) { m_SecondColor = color; }
 
 	Orientation GetOrientation() const { return m_Orientation; }
 
@@ -44,7 +44,7 @@ private:
 
 	Orientation m_Orientation = Orientation::Horizontal;
 
-	Color m_LeftColor = Color::Red;
-	Color m_RightColor = Color::Blue;
+	Color m_FirstColor = Color::Red;
+	Color m_SecondColor = Color::Blue;
 };
 
