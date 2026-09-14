@@ -3,6 +3,7 @@
 #include "GridPosition.h"
 
 class Pill;
+struct MatchResult;
 
 class Board
 {
@@ -18,6 +19,7 @@ public:
 
 
 	const Cell& GetCell(int column, int row) const { return m_Cells[column][row]; }
+	Cell& GetCell(int column, int row) { return m_Cells[column][row]; }
 	
 	bool IsCellOccupied(const GridPosition& position)const;
 	bool IsCellOccupied(int column, int row) const;
@@ -27,6 +29,8 @@ public:
 	bool CanMoveDown(const Pill& pill) const;
 
 	void LockPill(Pill& pill);
+
+	void RemoveMatches(const MatchResult& result);
 
 private:
 	Cell m_Cells[s_Width][s_Height];

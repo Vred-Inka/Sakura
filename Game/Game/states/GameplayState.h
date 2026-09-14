@@ -6,6 +6,7 @@
 #include "../gameplay/Board.h"
 #include "../gameplay/Pill.h"
 #include "../systems/FallingSystem.h"
+#include "../systems/MatchingSystem.h"
 
 class Renderer;
 
@@ -34,5 +35,6 @@ private:
 	Board m_Board{};
 
 	FallingSystem m_FallingSystem{};
+	MatchingSystem m_MatchingSystem{};
 };
 

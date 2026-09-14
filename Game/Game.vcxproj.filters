@@ -42,6 +42,12 @@
     <ClCompile Include="Game\systems\FallingSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\systems\MatchingSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\systems\MatchResult.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\include\SDL3\SDL.h">
@@ -332,8 +338,13 @@
     <ClInclude Include="Game\systems\FallingSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\systems\MatchingSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Game.slnx" />
+    <None Include="Game\documentation\Game.md" />
+    <None Include="Game\documentation\Setup.md" />
   </ItemGroup>
 </Project>

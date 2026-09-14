@@ -12,10 +12,11 @@ struct ColorRGB
 
 enum class Color
 {
-	Magenta,
+	Red,
 	Blue, 
 	Yellow,
-	Black
+	Black,
+	Green
 };
 
 

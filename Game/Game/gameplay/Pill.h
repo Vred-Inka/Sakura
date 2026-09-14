@@ -44,7 +44,7 @@ private:
 
 	Orientation m_Orientation = Orientation::Horizontal;
 
-	Color m_LeftColor = Color::Magenta;
+	Color m_LeftColor = Color::Red;
 	Color m_RightColor = Color::Blue;
 };
 

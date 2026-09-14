@@ -7,6 +7,8 @@
 #include "../rendering/BoardRenderer.h"
 #include "../rendering/PillRenderer.h"
 #include "../systems/FallingSystem.h"
+#include "../systems/MatchingSystem.h"
+#include "../systems/MatchResult.h"
 
 
 void GameplayState::Enter()
@@ -27,8 +29,18 @@ void GameplayState::Update(float dt)
 	if (result == FallResult::Locked)
 	{
 		m_Board.LockPill(m_ActivePill);
-		// get random color
-		SpawnNewPill();
+
+		MatchResult matchResult = m_MatchingSystem.FindMatches(m_Board);
+
+		//if (matchResult.m_HasMatches)
+		{
+			//m_Board.RemoveMatches(matchResult);
+			//m_GravitySystem.Apply(m_Board);
+		}
+		//else
+		{
+			SpawnNewPill();
+		}
 	}
 }
 

@@ -8,7 +8,7 @@ public:
 	const Color& GetColor() const { return m_Color; };
 
 	void SetColor(Color color) { m_Color = color; }
-	void SetOccupied() { m_Occupied = true; }
+	void SetOccupied(bool value = true) { m_Occupied = value; }
 	void SetRelatedCell(Cell* cell) { m_RelatedCell = cell; }
 
 private:
