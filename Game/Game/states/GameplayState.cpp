@@ -11,6 +11,11 @@
 #include "../systems/MatchResult.h"
 
 
+GameplayState::GameplayState(AssetsManager& assets)
+	:m_Assets(assets),
+	m_BoardRenderer(assets)
+{}
+
 void GameplayState::Enter()
 {
 	SpawnNewPill();
@@ -56,7 +61,7 @@ void GameplayState::Update(float dt)
 
 void GameplayState::Render(Renderer& renderer)
 {
-	BoardRenderer::Draw(renderer, m_Board);
+	m_BoardRenderer.Draw(renderer, m_Board);
 	PillRenderer::Draw(renderer, m_ActivePill);
 }
 
@@ -106,4 +111,5 @@ void GameplayState::SpawnNewPill()
 }
 
 void GameplayState::GameOver()
-{}
+{
+}

@@ -1,5 +1,6 @@
 #pragma once
 #include <Engine/rendering/Color.h>
+#include <string>
 
 enum class CellType
 {
@@ -25,6 +26,9 @@ public:
 	bool IsOccupied() const { return m_Type != CellType::Empty; }
 	const Color& GetColor() const { return m_Color; };
 	const Connection& GetConnection() const { return m_Connection; };
+
+	std::string GetColorName() const;
+	std::string GetCellTextureName() const;
 
 	void SetColor(Color color) { m_Color = color; }
 	void SetCellType(CellType celltype) { m_Type = celltype; }

@@ -28,7 +28,7 @@ bool Application::Initialize()
 		return false;
 	}
 
-	m_Game.Initialize();
+	m_Game.Initialize(m_Renderer, m_AssetManager);
 
 	m_Running = true;
 	return true;

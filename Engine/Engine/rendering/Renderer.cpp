@@ -1,7 +1,9 @@
 #include "Renderer.h"
+
 #include <SDL3/SDL.h>
 #include <iostream>
 
+#include "Texture.h"
 #include "platform/Window.h"
 
 bool Renderer::Create(Window& window)
@@ -39,4 +41,14 @@ void Renderer::DrawRect(float x, float y, float width, float height, const Color
 	SDL_SetRenderDrawColor(m_Renderer, color.r, color.g, color.b, 255);
 
 	SDL_RenderFillRect(m_Renderer, &rect);
+}
+
+void Renderer::DrawTexture(const Texture& texture, float x, float y)
+{
+	SDL_FRect dst
+	{
+		x, y, texture.GetWidth(), texture.GetHeight()
+	};
+
+	SDL_RenderTexture(m_Renderer, texture.GetNativeTexture(), nullptr, &dst);
 }

@@ -5,15 +5,19 @@
 
 #include "../gameplay/Board.h"
 #include "../gameplay/Pill.h"
+#include "../rendering/BoardRenderer.h"
 #include "../systems/FallingSystem.h"
 #include "../systems/MatchingSystem.h"
 #include "../systems/GravitySystem.h"
 
 class Renderer;
+class AssetsManager;
 
 class GameplayState : public IState
 {
 public:
+	explicit GameplayState(AssetsManager& assets);
+
 	void Enter() override;
 	void Exit() override;
 
@@ -35,7 +39,10 @@ public:
 
 private:
 	Pill m_ActivePill{};
+	AssetsManager& m_Assets;
 	Board m_Board{};
+
+	BoardRenderer m_BoardRenderer;
 
 	FallingSystem m_FallingSystem{};
 	MatchingSystem m_MatchingSystem{};

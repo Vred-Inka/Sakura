@@ -1,7 +1,16 @@
 #include "BoardRenderer.h"
 
+#include "Engine/rendering/Texture.h"
+#include "Engine/assets/AssetsManager.h"
+
 #include "ColorWraper.h"
+
 #include "../gameplay/Board.h"
+#include "../gameplay/Cell.h"
+
+BoardRenderer::BoardRenderer(AssetsManager& assets)
+	:m_Assets(assets)
+{}
 
 void BoardRenderer::Draw(Renderer& renderer, const Board& board)
 {
@@ -13,52 +22,17 @@ void BoardRenderer::Draw(Renderer& renderer, const Board& board)
 			float y = Board::s_BorderY + row * Board::s_CellSize;
 			
 			Cell cell = board.GetCell(col, row);
-			renderer.DrawRect(x, y, Board::s_CellSize, Board::s_CellSize, GetColorRGBColor(cell.GetColor()));
+			//renderer.DrawRect(x, y, Board::s_CellSize, Board::s_CellSize, GetColorRGBColor(cell.GetColor()));
+			renderer.DrawTexture(GetTextureForCell(cell), x, y);
 		}
 	}
 }
 
-/*
-void DrawCell(const Cell& cell)
+const Texture& BoardRenderer::GetTextureForCell(const Cell& cell)
 {
-	switch (cell.Connection)
-	{
-	case Connection::None:
-			DrawSingle();
-			break;
-		6
-
-			7
-	case Connection::Right:
-		8
-			DrawLeftHalf();
-		9
-			break;
-		10
-
-			11
-	case Connection::Left:
-		12
-			DrawRightHalf();
-		13
-			break;
-		14
-
-			15
-	case Connection::Down:
-		16
-			DrawTopHalf();
-		17
-			break;
-		18
-
-			19
-	case Connection::Up:
-		20
-			DrawBottomHalf();
-		21
-			break;
-		22
-	}
+	std::string textureName = cell.GetCellTextureName();
+	return m_Assets.GetTexture(textureName);
 }
-*/
+
+
+

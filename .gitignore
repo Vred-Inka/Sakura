@@ -7,3 +7,14 @@ Game/Game/x64/Debug/Game.h.obj.dt.module.json.command
 Game/Game/x64/
 Engine/Debug/Engine.idb
 Engine/Debug/Engine.pdb
+Game/x64/Debug/LICENSE.avif.txt
+Game/x64/Debug/LICENSE.dav1d.txt
+Game/x64/Debug/LICENSE.libpng.txt
+Game/x64/Debug/LICENSE.tiff.txt
+Game/x64/Debug/LICENSE.webp.txt
+Game/x64/Debug/libavif-16.dll
+Game/x64/Debug/libpng16-16.dll
+Game/x64/Debug/libtiff-6.dll
+Game/x64/Debug/libwebp-7.dll
+Game/x64/Debug/libwebpdemux-2.dll
+Game/x64/Debug/libwebpmux-3.dll

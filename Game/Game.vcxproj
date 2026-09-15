@@ -158,6 +158,8 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\gameplay\Cell.cpp" />
+    <ClCompile Include="Game\states\GameOverState.cpp" />
     <ClCompile Include="Game\systems\FallingSystem.cpp" />
     <ClCompile Include="Game\rendering\BoardRenderer.cpp" />
     <ClCompile Include="Game\gameplay\Board.cpp" />
@@ -172,6 +174,7 @@
     <ClCompile Include="Game\systems\MatchingSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\states\GameOverState.h" />
     <ClInclude Include="Game\rendering\ColorWraper.h" />
     <ClInclude Include="Game\systems\FallingSystem.h" />
     <ClInclude Include="Game\gameplay\GridPosition.h" />
@@ -276,6 +279,11 @@
     <None Include="Game.slnx" />
     <None Include="Game\documentation\Game.md" />
     <None Include="Game\documentation\Setup.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.vcxproj">
+      <Project>{d236b4ff-d4ef-4406-aa12-754be1af589d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

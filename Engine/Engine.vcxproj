@@ -73,18 +73,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build\Engine\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Engine\Intermediate\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)..\..\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Build\Engine\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Engine\Intermediate\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)..\..\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Build\Engine\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Engine\Intermediate\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)..\..\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Build\Engine\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Engine\Intermediate\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)..\..\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -107,8 +111,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -134,8 +137,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -159,7 +161,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL3.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -185,11 +187,11 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\assets\AssetsManager.h" />
     <ClInclude Include="Engine\core\Application.h" />
     <ClInclude Include="Engine\framework\IGame.h" />
     <ClInclude Include="Engine\framework\IState.h" />
@@ -287,16 +289,17 @@
     <ClInclude Include="Engine\platform\input\Input.h" />
     <ClInclude Include="Engine\core\Time.h" />
     <ClInclude Include="Engine\framework\StateMachine.h" />
-    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Engine\rendering\Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\assets\AssetsManager.cpp" />
     <ClCompile Include="Engine\core\Application.cpp" />
     <ClCompile Include="Engine\rendering\Renderer.cpp" />
     <ClCompile Include="Engine\platform\Window.cpp" />
     <ClCompile Include="Engine\platform\input\Input.cpp" />
     <ClCompile Include="Engine\core\Time.cpp" />
     <ClCompile Include="Engine\framework\StateMachine.cpp" />
-    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Engine\rendering\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="external\lib\x64\SDL3.dll" />
