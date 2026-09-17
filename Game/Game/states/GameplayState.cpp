@@ -13,7 +13,9 @@
 
 GameplayState::GameplayState(AssetsManager& assets)
 	:m_Assets(assets),
-	m_BoardRenderer(assets)
+	m_BackgroundRenderer(assets),
+	m_BoardRenderer(assets),
+	m_PillRenderer(assets)
 {}
 
 void GameplayState::Enter()
@@ -28,41 +30,103 @@ void GameplayState::Exit()
 
 void GameplayState::Update(float dt)
 {
-	if (m_GravitySystem.Apply(m_Board))
-		return;
+	switch (m_Phase)
+	{	
+	case BoardPhase::Spawn:
+		UpdateSpawn();
+		break;
+	case BoardPhase::Control:
+		UpdateControl(dt);
+		break;
+	case BoardPhase::Match:
+		UpdateMatch();
+		break;
+	case BoardPhase::Gravity:
+		UpdateGravity();
+		break;
+	case BoardPhase::GameOver:
+		UpdateGameOver();
+		break;
+	case  BoardPhase::Win:
+		UpdateWin();
+		break;
+	default:
+		break;
+	}
+}
 
+void GameplayState::UpdateSpawn()
+{
+	if (!m_Board.CanSpawnPill())
+	{
+		m_Phase = BoardPhase::GameOver;
+		return;
+	}
+
+	SpawnNewPill();
+	m_Phase = BoardPhase::Control;
+}
+
+void GameplayState::UpdateControl(float dt)
+{
 	HandleInput();
 
-	FallResult result = m_FallingSystem.Update(dt, m_Board, m_ActivePill);	
+	FallResult result = m_FallingSystem.Update(dt, m_Board, m_ActivePill);
 
 	if (result == FallResult::Locked)
 	{
 		m_Board.LockPill(m_ActivePill);
-
-		MatchResult matchResult = m_MatchingSystem.FindMatches(m_Board);
-
-		if (matchResult.m_HasMatches)
-		{
-			m_Board.RemoveMatches(matchResult);
-			matchResult.m_HasMatches = false;
-			m_GravitySystem.Apply(m_Board);
-		}
-
-		if (!m_Board.CanSpawnPill())
-		{
-			GameOver();
-		}
-		else
-		{
-			SpawnNewPill();
-		}
+		m_Phase = BoardPhase::Match;
 	}
+}
+
+void GameplayState::UpdateMatch()
+{
+	MatchResult matchResult = m_MatchingSystem.FindMatches(m_Board);
+
+	if (matchResult.m_HasMatches)
+	{
+		m_Board.RemoveMatches(matchResult);
+		m_Phase = BoardPhase::Gravity;
+	}
+	else
+	{
+		m_Phase = BoardPhase::Spawn;
+	}
+
+	if (m_Board.GetVirusCount() == 0)
+	{
+		m_Phase = BoardPhase::Win;
+	}
+}
+
+void GameplayState::UpdateGravity()
+{
+	bool moved = m_GravitySystem.Apply(m_Board);
+
+	if (moved)
+	{
+		return;
+	}
+
+	m_Phase = BoardPhase::Match;
+}
+
+void GameplayState::UpdateGameOver()
+{
+	GameOver();
+}
+
+void GameplayState::UpdateWin()
+{
+	//Win();
 }
 
 void GameplayState::Render(Renderer& renderer)
 {
+	m_BackgroundRenderer.Draw(renderer);
 	m_BoardRenderer.Draw(renderer, m_Board);
-	PillRenderer::Draw(renderer, m_ActivePill);
+	m_PillRenderer.Draw(renderer, m_ActivePill);
 }
 
 void GameplayState::HandleInput()
@@ -100,7 +164,6 @@ void GameplayState::HandleInput()
 	{
 		m_ActivePill.Rotate();
 	}
-
 }
 
 void GameplayState::SpawnNewPill()

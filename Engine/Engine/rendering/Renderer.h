@@ -19,6 +19,8 @@ public:
 	void DrawRect( float x,	float y, float width, float height,	const ColorRGB& color);
 
 	void DrawTexture(const Texture& texture, float x, float y);
+	void DrawTexture(const Texture& texture, float x, float y, float width, float height);
+	void DrawTextureRotated(const Texture& texture, float x, float y, float width, float height, double angle);
 
 	SDL_Renderer* GetNativeRenderer() { return m_Renderer; };
 

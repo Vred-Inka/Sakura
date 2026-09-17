@@ -57,6 +57,15 @@
     <ClCompile Include="Game\gameplay\Cell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\rendering\BackgroundRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\config\AssetsConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\config\GameConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\include\SDL3\SDL.h">
@@ -357,6 +366,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\states\GameOverState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\gameplay\BoardPhase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\rendering\BackgroundRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\config\AssetsConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\config\GameConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

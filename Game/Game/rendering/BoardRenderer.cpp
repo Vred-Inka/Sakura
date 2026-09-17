@@ -14,23 +14,28 @@ BoardRenderer::BoardRenderer(AssetsManager& assets)
 
 void BoardRenderer::Draw(Renderer& renderer, const Board& board)
 {
-	for (int col = 0; col < board.s_Width; ++col)
+	for (int col = 0; col < GameConfig::BoardWidth; ++col)
 	{
-		for (int row = 0; row < board.s_Height; ++row)
+		for (int row = 0; row < GameConfig::BoardHeight; ++row)
 		{
-			float x = Board::s_BorderX + col * Board::s_CellSize;
-			float y = Board::s_BorderY + row * Board::s_CellSize;
+			float x = GameConfig::BorderX + col * GameConfig::CellSize;
+			float y = GameConfig::BorderY + row * GameConfig::CellSize;
 			
 			Cell cell = board.GetCell(col, row);
-			//renderer.DrawRect(x, y, Board::s_CellSize, Board::s_CellSize, GetColorRGBColor(cell.GetColor()));
-			renderer.DrawTexture(GetTextureForCell(cell), x, y);
+			if (const Texture* cellTexture = GetTextureForCell(cell))
+			{
+				renderer.DrawTexture(*cellTexture, x, y, GameConfig::CellSize, GameConfig::CellSize);
+				//renderer.DrawTextureRotated(*cellTexture, x, y, GameConfig::CellSize, GameConfig::CellSize, cell.GetCellTextureAngle());
+			}
 		}
 	}
 }
 
-const Texture& BoardRenderer::GetTextureForCell(const Cell& cell)
+const Texture* BoardRenderer::GetTextureForCell(const Cell& cell)
 {
-	std::string textureName = cell.GetCellTextureName();
+	std::string textureName = GetColorName(cell.GetColor());
+	textureName += cell.GetConnectionName();
+
 	return m_Assets.GetTexture(textureName);
 }
 

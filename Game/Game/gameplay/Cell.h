@@ -27,8 +27,8 @@ public:
 	const Color& GetColor() const { return m_Color; };
 	const Connection& GetConnection() const { return m_Connection; };
 
-	std::string GetColorName() const;
-	std::string GetCellTextureName() const;
+	std::string GetConnectionName() const;
+	double GetCellTextureAngle() const;
 
 	void SetColor(Color color) { m_Color = color; }
 	void SetCellType(CellType celltype) { m_Type = celltype; }

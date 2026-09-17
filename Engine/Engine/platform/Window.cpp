@@ -5,7 +5,7 @@
 
 bool Window::Create()
 {
-    m_Window = SDL_CreateWindow("Engine Window", 800, 600, SDL_WINDOW_RESIZABLE);
+    m_Window = SDL_CreateWindow("Engine Window", 1024, 768, SDL_WINDOW_RESIZABLE);
 
     if (m_Window == nullptr)
     {

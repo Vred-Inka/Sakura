@@ -14,7 +14,13 @@ bool AssetsManager::LoadTexture(SDL_Renderer* renderer, const std::string& id, c
     return true;
 }
 
-Texture& AssetsManager::GetTexture(const std::string& id)
+Texture* AssetsManager::GetTexture(const std::string& id)
 {
-    return m_Textures.at(id);
+    std::unordered_map<std::string, Texture>::iterator texture = m_Textures.find(id);
+    if (texture != m_Textures.end())
+    {
+        return &texture->second;
+    }
+
+    return nullptr;
 }

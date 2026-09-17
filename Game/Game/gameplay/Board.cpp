@@ -13,6 +13,11 @@ bool Board::IsCellOccupied(int column, int row) const
 	return m_Cells[column][row].IsOccupied();
 }
 
+int Board::GetVirusCount() const
+{
+	return -1;
+}
+
 bool Board::CanMoveLeft(const Pill& pill) const
 {
 	if (pill.GetX() == 0)
@@ -59,7 +64,7 @@ bool Board::CanMoveRight(const Pill& pill) const
 
 bool Board::CanMoveDown(const Pill& pill) const
 {
-	if (pill.GetY() + 1 >= s_Height)
+	if (pill.GetY() + 1 >= GameConfig::BoardHeight)
 		return false;
 
 	if (pill.GetOrientation() == Orientation::Horizontal)
@@ -125,9 +130,9 @@ void Board::RemoveMatches(const MatchResult& result)
 	if (!result.m_HasMatches)
 		return;
 
-	for (int col = 0; col < Board::s_Width; col++)
+	for (int col = 0; col < GameConfig::BoardWidth; col++)
 	{
-		for (int row = 0; row < Board::s_Height; row++)
+		for (int row = 0; row < GameConfig::BoardHeight; row++)
 		{
 			if (!result.m_MatchedCells[col][row])
 				continue;

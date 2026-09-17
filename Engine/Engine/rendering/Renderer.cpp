@@ -26,7 +26,7 @@ void Renderer::Destroy()
 
 void Renderer::BeginFrame()
 {
-	SDL_SetRenderDrawColor(m_Renderer, 50, 50, 50, 255);
+	SDL_SetRenderDrawColor(m_Renderer, 20, 40, 40, 255);
 	SDL_RenderClear(m_Renderer);
 }
 
@@ -51,4 +51,30 @@ void Renderer::DrawTexture(const Texture& texture, float x, float y)
 	};
 
 	SDL_RenderTexture(m_Renderer, texture.GetNativeTexture(), nullptr, &dst);
+}
+
+void Renderer::DrawTexture(const Texture& texture, float x, float y, float width, float height)
+{
+	SDL_FRect dst
+	{
+		x, y, width, height
+	};
+
+	SDL_RenderTexture(m_Renderer, texture.GetNativeTexture(), nullptr, &dst);
+}
+
+void Renderer::DrawTextureRotated(const Texture& texture, float x, float y, float width, float height, double angle)
+{
+	SDL_FRect dst
+	{
+		x, y, width, height
+	};
+
+	SDL_FPoint center
+	{
+		width / 2.0f,
+		height / 2.0f
+	};
+
+	SDL_RenderTextureRotated(m_Renderer, texture.GetNativeTexture(), nullptr, &dst, angle, &center, SDL_FLIP_NONE);
 }

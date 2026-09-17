@@ -6,5 +6,5 @@ struct MatchResult
 {
 	bool m_HasMatches = false;
 
-	bool m_MatchedCells[Board::s_Width][Board::s_Height] = {};
+	bool m_MatchedCells[GameConfig::BoardWidth][GameConfig::BoardHeight] = {};
 };

@@ -12,3 +12,17 @@ static std::map<Color, ColorRGB> Colors =
 
 static ColorRGB& GetColorRGBColor(const Color& color) { return Colors[color]; }
 
+static std::string GetColorName(const Color& color)
+{
+    switch (color)
+    {
+    case Color::Red:
+        return "Red";
+    case Color::Blue:
+        return "Blue";
+    case Color::Yellow:
+        return "Yellow";
+    default:
+        return "Black";
+    }
+}

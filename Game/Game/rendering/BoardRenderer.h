@@ -15,7 +15,7 @@ public:
 	void Draw(Renderer& renderer, const Board& board);
 
 	void DrawCell(Renderer& renderer, const Cell& cell);
-	const Texture& GetTextureForCell(const Cell& cell);
+	const Texture* GetTextureForCell(const Cell& cell);
 
 private:
 	AssetsManager& m_Assets;

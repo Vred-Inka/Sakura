@@ -8,16 +8,16 @@ MatchResult MatchingSystem::FindMatches(Board& board)
     MatchResult result;
 
     //Vertical
-    for (int col = 0; col < Board::s_Width; col++)
+    for (int col = 0; col < GameConfig::BoardWidth; col++)
     {
         int start = 0;
         int length = 1;
 
-        for (int row = 1; row <= Board::s_Height; row++)
+        for (int row = 1; row <= GameConfig::BoardHeight; row++)
         {
             bool sameColor = false;
 
-            if (row < Board::s_Height)
+            if (row < GameConfig::BoardHeight)
             {
                 const Cell& previus = board.GetCell(col, row - 1);
                 const Cell& current = board.GetCell(col, row);
@@ -48,16 +48,16 @@ MatchResult MatchingSystem::FindMatches(Board& board)
         }
     }
 
-    for (int row = 0; row < Board::s_Height; row++)
+    for (int row = 0; row < GameConfig::BoardHeight; row++)
     {
         int start = 0;
         int length = 1;
 
-        for (int col = 1; col <= Board::s_Width; col++)
+        for (int col = 1; col <= GameConfig::BoardWidth; col++)
         {
             bool sameColor = false;
 
-            if (col < Board::s_Width)
+            if (col < GameConfig::BoardWidth)
             {
                 const Cell& previus = board.GetCell(col - 1 , row);
                 const Cell& current = board.GetCell(col, row);

@@ -1,7 +1,6 @@
 #pragma once
-#include <map>
-#include "Engine/rendering/Color.h"
 
+class AssetsManager;
 class Renderer;
 class Pill;
 
@@ -9,7 +8,11 @@ class Pill;
 class PillRenderer
 {
 public:
-	static void Draw(Renderer& renderer, const Pill& pill);
-	static void DrawPill(Renderer& renderer, Pill& pill);	
+	explicit PillRenderer(AssetsManager& assets);
+	void Draw(Renderer& renderer, const Pill& pill);
+	void DrawPill(Renderer& renderer, Pill& pill);	
+
+private:
+	AssetsManager& m_Assets;
 };
 

@@ -6,9 +6,9 @@ bool GravitySystem::Apply(Board& board)
 {
     bool moved = false;
 
-    for (int row = Board::s_Height - 2; row >= 0; row--)
+    for (int row = GameConfig::BoardHeight - 2; row >= 0; row--)
     {
-        for (int col = 0; col < Board::s_Width; col++)
+        for (int col = 0; col < GameConfig::BoardWidth; col++)
         {
             if (!board.IsCellOccupied(col, row))
                 continue;

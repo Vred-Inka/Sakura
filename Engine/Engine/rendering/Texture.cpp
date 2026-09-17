@@ -54,8 +54,8 @@ bool Texture::Load(SDL_Renderer* renderer, const std::string& path)
 
     SDL_GetTextureSize(m_Texture, &width, &height);
 
-    m_Width = static_cast<int>(width);
-    m_Height = static_cast<int>(height);
+    m_Width = width;
+    m_Height = height;
 
     return true;
 }

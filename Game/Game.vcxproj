@@ -95,6 +95,10 @@
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -116,6 +120,10 @@
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -135,6 +143,10 @@
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -156,8 +168,15 @@
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\config\AssetsConfig.cpp" />
+    <ClCompile Include="Game\config\GameConfig.cpp" />
+    <ClCompile Include="Game\rendering\BackgroundRenderer.cpp" />
     <ClCompile Include="Game\gameplay\Cell.cpp" />
     <ClCompile Include="Game\states\GameOverState.cpp" />
     <ClCompile Include="Game\systems\FallingSystem.cpp" />
@@ -174,6 +193,10 @@
     <ClCompile Include="Game\systems\MatchingSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\config\AssetsConfig.h" />
+    <ClInclude Include="Game\config\GameConfig.h" />
+    <ClInclude Include="Game\rendering\BackgroundRenderer.h" />
+    <ClInclude Include="Game\gameplay\BoardPhase.h" />
     <ClInclude Include="Game\states\GameOverState.h" />
     <ClInclude Include="Game\rendering\ColorWraper.h" />
     <ClInclude Include="Game\systems\FallingSystem.h" />
