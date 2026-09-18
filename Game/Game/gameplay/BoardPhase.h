@@ -7,5 +7,5 @@ enum class BoardPhase
 	Match,
 	Gravity,
 	GameOver,
-	Win
+	Victory
 };

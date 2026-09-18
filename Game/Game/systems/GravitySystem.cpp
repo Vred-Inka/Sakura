@@ -10,25 +10,29 @@ bool GravitySystem::Apply(Board& board)
     {
         for (int col = 0; col < GameConfig::BoardWidth; col++)
         {
-            if (!board.IsCellOccupied(col, row))
-                continue;
-
-            if (board.IsCellOccupied(col, row + 1))
-                continue;
-
             Cell& cell = board.GetCell(col, row);
+            if (cell.GetType() == CellType::Virus)
+                continue;
+
+            Cell& bottomCell = board.GetCell(col, row + 1);
+
+            if (!cell.IsOccupied() || bottomCell.IsOccupied())
+                continue;
 
             if(cell.GetConnection() == Connection::None)
             {
                 board.MoveCell(col, row, col, row + 1);
                 moved = true;
             }
+            else if (cell.GetConnection() == Connection::Left)
+            {
+                // will chck with right part of a pill
+            }
             else if (cell.GetConnection() == Connection::Right)
             {
-                if (!board.IsCellOccupied(col + 1, row))
-                    continue;
-
-                if (board.IsCellOccupied(col + 1, row + 1))
+                Cell& leftCell = board.GetCell(col + 1, row);
+                Cell& leftBottomCell = board.GetCell(col + 1, row + 1);
+                if (leftBottomCell.IsOccupied())
                     continue;
 
                 board.MoveCell(col, row, col, row + 1);

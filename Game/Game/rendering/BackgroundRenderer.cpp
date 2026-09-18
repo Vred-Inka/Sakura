@@ -3,7 +3,7 @@
 #include "Engine/assets/AssetsManager.h"
 #include "Engine/rendering/Renderer.h"
 #include "../config/GameConfig.h"
-#include "ColorWraper.h"
+#include "ColorHelper.h"
 
 BackgroundRenderer::BackgroundRenderer(AssetsManager& assets)
 	:m_Assets(assets)
@@ -12,18 +12,18 @@ BackgroundRenderer::BackgroundRenderer(AssetsManager& assets)
 
 void BackgroundRenderer::Draw(Renderer& renderer)
 {
-	const int step = 32;
-	for (int i = 0, x = 0; x < 1024; ++i,x = x + step)
+	const float step = 32.0f;
+	
+	for (int i = 0, x = 0; x < GameConfig::WindowWidth; ++i,x = x + step)
 	{
-		for (int j = 0, y = 0; y < 768; ++j, y = y + step)
+		for (int j = 0,  y = 0; y < GameConfig::WindowHeight; ++j, y = y + step)
 		{
 			if ((i + j) % 2 == 0)
 			{
-				renderer.DrawRect(x, y, step, step, GetColorRGBColor(Color::Red));
+				renderer.DrawRect((float)x, (float)y, step, step, GetColorRGBColor(Color::Red));
 			}
 		}
 	}
-
 
 	for (int i = 0; i < GameConfig::BackgroundTexturesCount; ++i)
 	{
@@ -31,6 +31,5 @@ void BackgroundRenderer::Draw(Renderer& renderer)
 
 		renderer.DrawTexture(*m_Assets.GetTexture(texture.id), texture.x, texture.y, texture.Width, texture.Height);
 	}
-
 }
 

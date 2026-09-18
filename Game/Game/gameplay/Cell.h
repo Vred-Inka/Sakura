@@ -26,6 +26,7 @@ public:
 	bool IsOccupied() const { return m_Type != CellType::Empty; }
 	const Color& GetColor() const { return m_Color; };
 	const Connection& GetConnection() const { return m_Connection; };
+	const CellType& GetType() const { return m_Type; };
 
 	std::string GetConnectionName() const;
 	double GetCellTextureAngle() const;

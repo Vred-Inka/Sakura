@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "Time.h"
-#include "platform/input/Input.h"
+#include "../platform/input/Input.h"
 
 Application::Application(IGame& game)
 	: m_Game(game)

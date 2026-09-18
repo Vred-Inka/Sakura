@@ -8,9 +8,9 @@ namespace GameConfig
 		{"Cell", 722, 170, 224, 224 },
 		{"Mario", 750, 220, 168, 168 },
 		{"Lupa", 0, 300, 320, 352 },
-		{"BlueVirus", 195, 350, 96, 104 },
-		{"RedVirus", 65, 400, 96, 104 },
-		{"YellowVirus", 175, 480, 96, 104 },
+		{"BlueVirusBig", 195, 350, 96, 104 },
+		{"RedVirusBig", 65, 400, 96, 104 },
+		{"YellowVirusBig", 175, 480, 96, 104 },
 	};
 
 	const int BackgroundTexturesCount = sizeof(BackgroundTextures) / sizeof(TextureConfig);

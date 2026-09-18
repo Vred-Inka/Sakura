@@ -1,10 +1,10 @@
 #include "GameplayState.h"
 
 #include "Engine/platform/input/Input.h"
-#include "Engine/framework/StateMachine.h"
 
 #include "../gameplay/Pill.h"
 #include "../rendering/BoardRenderer.h"
+#include "../rendering/ColorHelper.h"
 #include "../rendering/PillRenderer.h"
 #include "../systems/FallingSystem.h"
 #include "../systems/MatchingSystem.h"
@@ -16,7 +16,9 @@ GameplayState::GameplayState(AssetsManager& assets)
 	m_BackgroundRenderer(assets),
 	m_BoardRenderer(assets),
 	m_PillRenderer(assets)
-{}
+{
+	m_VirusSpawner.Spawn(m_Board, 10);
+}
 
 void GameplayState::Enter()
 {
@@ -47,8 +49,8 @@ void GameplayState::Update(float dt)
 	case BoardPhase::GameOver:
 		UpdateGameOver();
 		break;
-	case  BoardPhase::Win:
-		UpdateWin();
+	case  BoardPhase::Victory:
+		UpdateVictory();
 		break;
 	default:
 		break;
@@ -96,7 +98,7 @@ void GameplayState::UpdateMatch()
 
 	if (m_Board.GetVirusCount() == 0)
 	{
-		m_Phase = BoardPhase::Win;
+		m_Phase = BoardPhase::Victory;
 	}
 }
 
@@ -117,7 +119,7 @@ void GameplayState::UpdateGameOver()
 	GameOver();
 }
 
-void GameplayState::UpdateWin()
+void GameplayState::UpdateVictory()
 {
 	//Win();
 }
@@ -157,12 +159,15 @@ void GameplayState::HandleInput()
 
 	if (Input::IsKeyDown(Key::Up))
 	{
-		m_Board.LockPill(m_ActivePill);
+		//m_Board.LockPill(m_ActivePill);
 	}
 
 	if (Input::IsKeyDown(Key::Space))
 	{
-		m_ActivePill.Rotate();
+		if (m_Board.CanRotate(m_ActivePill))
+		{
+			m_ActivePill.Rotate();
+		}
 	}
 }
 

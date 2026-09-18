@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "Texture.h"
-#include "platform/Window.h"
+#include "../platform/Window.h"
 
 bool Renderer::Create(Window& window)
 {	

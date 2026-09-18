@@ -3,7 +3,7 @@
 #include "Engine/rendering/Texture.h"
 #include "Engine/assets/AssetsManager.h"
 
-#include "ColorWraper.h"
+#include "ColorHelper.h"
 
 #include "../gameplay/Board.h"
 #include "../gameplay/Cell.h"
@@ -34,7 +34,15 @@ void BoardRenderer::Draw(Renderer& renderer, const Board& board)
 const Texture* BoardRenderer::GetTextureForCell(const Cell& cell)
 {
 	std::string textureName = GetColorName(cell.GetColor());
-	textureName += cell.GetConnectionName();
+
+	if (cell.GetType() == CellType::Virus)
+	{
+		textureName += "Virus";
+	}
+	else
+	{
+		textureName += cell.GetConnectionName();
+	}
 
 	return m_Assets.GetTexture(textureName);
 }

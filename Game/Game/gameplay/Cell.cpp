@@ -1,6 +1,6 @@
 #include "Cell.h"
 #include <string>
-#include "../rendering/ColorWraper.h"
+#include "../rendering/ColorHelper.h"
 
 std::string Cell::GetConnectionName() const
 {	

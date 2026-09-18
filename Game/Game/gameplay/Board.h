@@ -15,11 +15,13 @@ public:
 	bool IsCellOccupied(const GridPosition& position)const;
 	bool IsCellOccupied(int column, int row) const;
 
-	int GetVirusCount() const;
+	void SetVirus(int col, int row, const Color& color);
+	int GetVirusCount() const { return m_VirusCount; };
 
 	bool CanMoveLeft(const Pill& pill) const;
 	bool CanMoveRight(const Pill& pill) const;
 	bool CanMoveDown(const Pill& pill) const;
+	bool CanRotate(const Pill& pill) const;
 
 	bool CanSpawnPill() const;
 
@@ -32,5 +34,6 @@ public:
 
 private:
 	Cell m_Cells[GameConfig::BoardWidth][GameConfig::BoardHeight];
+	int m_VirusCount = 0;
 };
 

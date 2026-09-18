@@ -1,6 +1,8 @@
 #pragma once
 #include "Engine/rendering/Color.h"
 
+#include <random>
+
 static std::map<Color, ColorRGB> Colors =
 {
 	{Color::Red, ColorRGB{232, 48, 48}},
@@ -25,4 +27,11 @@ static std::string GetColorName(const Color& color)
     default:
         return "Black";
     }
+}
+
+static const Color GetRandomColor()
+{
+	static std::mt19937 rng(std::random_device{}());
+	std::uniform_int_distribution<int> dist(0, 2);
+	return static_cast<Color>(dist(rng));
 }

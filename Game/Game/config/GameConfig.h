@@ -11,6 +11,8 @@ struct TextureConfig
 
 namespace GameConfig
 {
+	constexpr float WindowWidth = 1024.0f;
+	constexpr float WindowHeight = 768.0f;
 	constexpr int BoardWidth = 8;
 	constexpr int BoardHeight = 16;
 	constexpr float CellSize = 32.0f;

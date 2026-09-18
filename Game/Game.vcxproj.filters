@@ -66,6 +66,15 @@
     <ClCompile Include="Game\config\GameConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\systems\ScoreSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\animation\Aniamtion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\gameplay\VirusSpawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\include\SDL3\SDL.h">
@@ -362,7 +371,7 @@
     <ClInclude Include="Game\systems\GravitySystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\rendering\ColorWraper.h">
+    <ClInclude Include="Game\rendering\ColorHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\states\GameOverState.h">
@@ -378,6 +387,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\config\GameConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\systems\ScoreSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\animation\Aniamtion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\gameplay\VirusSpawner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

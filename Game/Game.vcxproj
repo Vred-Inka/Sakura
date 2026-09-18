@@ -109,7 +109,8 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Projects\Sakura_Engine\Engine\external\include;$(SolutionDir)..\Engine\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Engine\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,7 +158,8 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Projects\Sakura_Engine\Engine\external\include;$(SolutionDir)..\Engine\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Engine\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -174,8 +176,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\animation\Aniamtion.cpp" />
     <ClCompile Include="Game\config\AssetsConfig.cpp" />
     <ClCompile Include="Game\config\GameConfig.cpp" />
+    <ClCompile Include="Game\gameplay\VirusSpawner.cpp" />
     <ClCompile Include="Game\rendering\BackgroundRenderer.cpp" />
     <ClCompile Include="Game\gameplay\Cell.cpp" />
     <ClCompile Include="Game\states\GameOverState.cpp" />
@@ -189,16 +193,22 @@
     <ClCompile Include="Game\states\MainMenuState.cpp" />
     <ClCompile Include="Game\systems\MatchResult.h" />
     <ClCompile Include="Game\systems\GravitySystem.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)..\Engine\External\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)..\Engine\External\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="Game\systems\MatchingSystem.cpp" />
+    <ClCompile Include="Game\systems\ScoreSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\animation\Aniamtion.h" />
     <ClInclude Include="Game\config\AssetsConfig.h" />
     <ClInclude Include="Game\config\GameConfig.h" />
+    <ClInclude Include="Game\gameplay\VirusSpawner.h" />
     <ClInclude Include="Game\rendering\BackgroundRenderer.h" />
     <ClInclude Include="Game\gameplay\BoardPhase.h" />
     <ClInclude Include="Game\states\GameOverState.h" />
-    <ClInclude Include="Game\rendering\ColorWraper.h" />
+    <ClInclude Include="Game\rendering\ColorHelper.h" />
     <ClInclude Include="Game\systems\FallingSystem.h" />
     <ClInclude Include="Game\gameplay\GridPosition.h" />
     <ClInclude Include="Game\rendering\BoardRenderer.h" />
@@ -297,6 +307,7 @@
     <ClInclude Include="Game\DrMarioGame.h" />
     <ClInclude Include="Game\systems\MatchingSystem.h" />
     <ClInclude Include="Game\systems\GravitySystem.h" />
+    <ClInclude Include="Game\systems\ScoreSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Game.slnx" />
