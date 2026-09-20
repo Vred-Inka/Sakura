@@ -8,6 +8,7 @@
 #include "../rendering/PillRenderer.h"
 #include "../systems/FallingSystem.h"
 #include "../systems/MatchingSystem.h"
+#include "../systems/ScoreSystem.h"
 #include "../systems/MatchResult.h"
 
 
@@ -88,6 +89,7 @@ void GameplayState::UpdateMatch()
 
 	if (matchResult.m_HasMatches)
 	{
+		m_ScoreSystem.Process(matchResult);
 		m_Board.RemoveMatches(matchResult);
 		m_Phase = BoardPhase::Gravity;
 	}
@@ -129,6 +131,7 @@ void GameplayState::Render(Renderer& renderer)
 	m_BackgroundRenderer.Draw(renderer);
 	m_BoardRenderer.Draw(renderer, m_Board);
 	m_PillRenderer.Draw(renderer, m_ActivePill);
+	m_UIRenderer.Draw(renderer, m_Assets, m_ScoreSystem);
 }
 
 void GameplayState::HandleInput()

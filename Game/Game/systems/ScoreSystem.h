@@ -1,10 +1,11 @@
 #pragma once
+
+struct MatchResult;
+
 class ScoreSystem
 {
 public:
-	void AddVirusDestroyed();
-	void AddPillDestroyed();
-
+	void Process(const MatchResult& result);
 	int GetScore() const { return m_Score; };
 
 private:

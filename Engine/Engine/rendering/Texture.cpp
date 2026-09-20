@@ -1,5 +1,7 @@
 #include "Texture.h"
 
+#include <filesystem>
+
 #include <SDL3/SDL.h>
 #include <SDL3/SDL3_image/SDL_image.h>
 
@@ -42,7 +44,9 @@ Texture& Texture::operator=(Texture&& other) noexcept
 bool Texture::Load(SDL_Renderer* renderer, const std::string& path)
 {
     Destroy();
-    m_Texture = IMG_LoadTexture(renderer, path.c_str());
+
+    std::string fullPath = std::filesystem::current_path().string() + path.c_str();
+    m_Texture = IMG_LoadTexture(renderer, fullPath.c_str());
 
     if (!m_Texture)
     {

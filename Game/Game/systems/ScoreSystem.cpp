@@ -1,11 +1,9 @@
 #include "ScoreSystem.h"
 
-void ScoreSystem::AddVirusDestroyed()
-{
-	m_Score += 100;
-}
+#include "MatchResult.h"
 
-void ScoreSystem::AddPillDestroyed()
+void ScoreSystem::Process(const MatchResult& result)
 {
-	m_Score += 10;
+	m_Score += result.m_VirusCount * 100;
+	m_Score += result.m_PillCount * 10;
 }

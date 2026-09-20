@@ -3,6 +3,7 @@
 #include "MatchResult.h"
 #include "../gameplay/Board.h"
 
+//TODO: TooLong
 MatchResult MatchingSystem::FindMatches(Board& board)
 {
     MatchResult result;
@@ -37,6 +38,15 @@ MatchResult MatchingSystem::FindMatches(Board& board)
                     for (int i = 0; i < length; i++)
                     {
                         result.m_MatchedCells[col][start + i] = true;
+
+                        if (board.GetCell(col, start + i).GetType() == CellType::Virus)
+                        {
+                            ++result.m_VirusCount;
+                        }
+                        else if (board.GetCell(col, start + 1).GetType() == CellType::Pill)
+                        {
+                            ++result.m_PillCount;
+                        }
                     }
                 }
             }
@@ -77,6 +87,14 @@ MatchResult MatchingSystem::FindMatches(Board& board)
                     for (int i = 0; i < length; i++)
                     {
                         result.m_MatchedCells[start + i][row] = true;
+                        if (board.GetCell(start + i, row).GetType() == CellType::Virus)
+                        {
+                            ++result.m_VirusCount;
+                        }
+                        else if (board.GetCell(start + i, row).GetType() == CellType::Pill)
+                        {
+                            ++result.m_PillCount;
+                        }
                     }
                 }
             }

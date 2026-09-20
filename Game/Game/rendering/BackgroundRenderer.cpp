@@ -12,7 +12,7 @@ BackgroundRenderer::BackgroundRenderer(AssetsManager& assets)
 
 void BackgroundRenderer::Draw(Renderer& renderer)
 {
-	const float step = 32.0f;
+	const int step = 32.0f;
 	
 	for (int i = 0, x = 0; x < GameConfig::WindowWidth; ++i,x = x + step)
 	{

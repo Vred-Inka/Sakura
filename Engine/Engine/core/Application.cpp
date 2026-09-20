@@ -1,6 +1,7 @@
 #include "Application.h"
 
 #include<SDL3/SDL.h>
+#include <SDL3/SDL3_ttf/SDL_ttf.h>
 #include <iostream>
 
 #include "Time.h"
@@ -15,6 +16,12 @@ bool Application::Initialize()
 	if (!SDL_Init(SDL_INIT_VIDEO))
 	{
 		std::cout << "SDL_Init failed: " << SDL_GetError() << std::endl;
+		return false;
+	}
+
+	if (!TTF_Init())
+	{
+		std::cout << "TTF_Init failed : " << SDL_GetError() << std::endl;
 		return false;
 	}
 
@@ -58,6 +65,7 @@ void Application::Shutdown()
 	m_Renderer.Destroy();
 	m_Window.Destroy();
 
+	TTF_Quit();
 	SDL_Quit();
 }
 

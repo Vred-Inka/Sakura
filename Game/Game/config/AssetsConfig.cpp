@@ -4,36 +4,36 @@ namespace AssetsConfig
 {
 	const TexturePathConfig Textures[] =
 	{
-		{"Red", "assets/textures/Red.png"},
-		{"RedLeft", "assets/textures/RedLeft.png"},
-		{"RedRight", "assets/textures/RedRight.png"},
-		{"RedUp", "assets/textures/RedUp.png"},
-		{"RedDown", "assets/textures/RedDown.png"},
+		{"Red", "/Game/assets/textures/Red.png"},
+		{"RedLeft", "/Game/assets/textures/RedLeft.png"},
+		{"RedRight", "/Game/assets/textures/RedRight.png"},
+		{"RedUp", "/Game/assets/textures/RedUp.png"},
+		{"RedDown", "/Game/assets/textures/RedDown.png"},
 
-		{"Blue", "assets/textures/Blue.png"},
-		{"BlueLeft", "assets/textures/BlueLeft.png"},
-		{"BlueRight", "assets/textures/BlueRight.png"},
-		{"BlueUp", "assets/textures/BlueUp.png"},
-		{"BlueDown", "assets/textures/BlueDown.png"},
+		{"Blue", "/Game/assets/textures/Blue.png"},
+		{"BlueLeft", "/Game/assets/textures/BlueLeft.png"},
+		{"BlueRight", "/Game/assets/textures/BlueRight.png"},
+		{"BlueUp", "/Game/assets/textures/BlueUp.png"},
+		{"BlueDown", "/Game/assets/textures/BlueDown.png"},
 
-		{"Yellow", "assets/textures/Yellow.png"},
-		{"YellowLeft", "assets/textures/YellowLeft.png"},
-		{"YellowRight", "assets/textures/YellowRight.png"},
-		{"YellowUp", "assets/textures/YellowUp.png"},
-		{"YellowDown", "assets/textures/YellowDown.png"},
+		{"Yellow", "/Game/assets/textures/Yellow.png"},
+		{"YellowLeft", "/Game/assets/textures/YellowLeft.png"},
+		{"YellowRight", "/Game/assets/textures/YellowRight.png"},
+		{"YellowUp", "/Game/assets/textures/YellowUp.png"},
+		{"YellowDown", "/Game/assets/textures/YellowDown.png"},
 
-		{"BlueVirus", "assets/textures/BlueVirus.png"},
-		{"RedVirus", "assets/textures/RedVirus.png"},
-		{"YellowVirus", "assets/textures/YellowVirus.png"},
+		{"BlueVirus", "/Game/assets/textures/BlueVirus.png"},
+		{"RedVirus", "/Game/assets/textures/RedVirus.png"},
+		{"YellowVirus", "/Game/assets/textures/YellowVirus.png"},
 
-		{"Bottle", "assets/textures/background/bottle-1.png"},
-		{"Mario", "assets/textures/background/mario-s1.png"},
-		{"Cell", "assets/textures/background/cell.png"},
-		{"Lupa", "assets/textures/background/lupa.png"},
+		{"Bottle", "/Game/assets/textures/background/bottle-1.png"},
+		{"Mario", "/Game/assets/textures/background/mario-s1.png"},
+		{"Cell", "/Game/assets/textures/background/cell.png"},
+		{"Lupa", "/Game/assets/textures/background/lupa.png"},
 
-		{"BlueVirusBig", "assets/textures/background/big-virus-b1.png"},
-		{"RedVirusBig", "assets/textures/background/big-virus-r1.png"},
-		{"YellowVirusBig", "assets/textures/background/big-virus-y1.png"},
+		{"BlueVirusBig", "/Game/assets/textures/background/big-virus-b1.png"},
+		{"RedVirusBig", "/Game/assets/textures/background/big-virus-r1.png"},
+		{"YellowVirusBig", "/Game/assets/textures/background/big-virus-y1.png"},
 
 		
 	};

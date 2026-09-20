@@ -111,7 +111,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib;SDL3_ttf.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -126,7 +126,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>C:\Projects\Sakura_Engine\Engine\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -138,7 +138,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib;SDL3_ttf.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -162,7 +162,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib;SDL3_ttf.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -177,7 +177,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>C:\Projects\Sakura_Engine\Engine\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -189,7 +189,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib;SDL3_ttf.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -199,6 +199,7 @@
     <ClInclude Include="Engine\framework\IState.h" />
     <ClInclude Include="Engine\platform\input\KeyCodes.h" />
     <ClInclude Include="Engine\rendering\Color.h" />
+    <ClInclude Include="Engine\rendering\TextRenderer.h" />
     <ClInclude Include="external\include\SDL3\SDL.h" />
     <ClInclude Include="external\include\SDL3\SDL_assert.h" />
     <ClInclude Include="external\include\SDL3\SDL_asyncio.h" />
@@ -292,6 +293,7 @@
     <ClInclude Include="Engine\core\Time.h" />
     <ClInclude Include="Engine\framework\StateMachine.h" />
     <ClInclude Include="Engine\rendering\Texture.h" />
+    <ClInclude Include="Engine\UI\Font.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\assets\AssetsManager.cpp" />
@@ -302,6 +304,8 @@
     <ClCompile Include="Engine\core\Time.cpp" />
     <ClCompile Include="Engine\framework\StateMachine.cpp" />
     <ClCompile Include="Engine\rendering\Texture.cpp" />
+    <ClCompile Include="Engine\UI\Font.cpp" />
+    <ClCompile Include="Engine\rendering\TextRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="external\lib\x64\SDL3.dll" />

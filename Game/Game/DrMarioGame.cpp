@@ -18,6 +18,8 @@ bool DrMarioGame::Initialize(Renderer& renderer, AssetsManager& assets)
 		assets.LoadTexture(renderer.GetNativeRenderer(), config.id, config.Path);
 	}
 
+	assets.LoadFont("Score", "\\Game\\assets\\fonts\\Roboto-Bold.ttf", 32.0f);
+
 	m_StateMachine.ChangeState(std::make_unique<GameplayState>(assets));
 	return true;
 }
