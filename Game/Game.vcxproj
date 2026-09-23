@@ -178,7 +178,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Game\animation\Aniamtion.cpp" />
+    <ClCompile Include="Game\animation\DestroyAnimation.cpp" />
     <ClCompile Include="Game\config\AssetsConfig.cpp" />
     <ClCompile Include="Game\config\GameConfig.cpp" />
     <ClCompile Include="Game\gameplay\VirusSpawner.cpp" />
@@ -204,7 +204,8 @@
     <ClCompile Include="Game\rendering\UIRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\animation\Aniamtion.h" />
+    <ClInclude Include="Game\animation\DestroyAnimation.h" />
+    <ClInclude Include="Game\animation\Animation.h" />
     <ClInclude Include="Game\config\AssetsConfig.h" />
     <ClInclude Include="Game\config\GameConfig.h" />
     <ClInclude Include="Game\gameplay\VirusSpawner.h" />

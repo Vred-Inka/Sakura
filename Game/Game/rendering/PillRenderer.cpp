@@ -21,13 +21,13 @@ void PillRenderer::Draw(Renderer& renderer, const Pill& pill)
 
 	if (pill.GetOrientation() == Orientation::Horizontal)
 	{
-		renderer.DrawTexture(*m_Assets.GetTexture(firstColor + "Left"), x, y, GameConfig::CellSize, GameConfig::CellSize);
-		renderer.DrawTexture(*m_Assets.GetTexture(secondColor + "Right"), x + GameConfig::CellSize, y, GameConfig::CellSize, GameConfig::CellSize);
+		renderer.DrawTexture(*m_Assets.GetTexture(firstColor + "Left"), x, y, GameConfig::CellSize, GameConfig::CellSize, 255);
+		renderer.DrawTexture(*m_Assets.GetTexture(secondColor + "Right"), x + GameConfig::CellSize, y, GameConfig::CellSize, GameConfig::CellSize, 255);
 	} 
 	else
 	{
-		renderer.DrawTexture(*m_Assets.GetTexture(firstColor + "Down"), x, y, GameConfig::CellSize, GameConfig::CellSize);
-		renderer.DrawTexture(*m_Assets.GetTexture(secondColor + "Up"), x, y - GameConfig::CellSize, GameConfig::CellSize, GameConfig::CellSize);
+		renderer.DrawTexture(*m_Assets.GetTexture(firstColor + "Down"), x, y, GameConfig::CellSize, GameConfig::CellSize, 255);
+		renderer.DrawTexture(*m_Assets.GetTexture(secondColor + "Up"), x, y - GameConfig::CellSize, GameConfig::CellSize, GameConfig::CellSize, 255);
 	}
 }
 

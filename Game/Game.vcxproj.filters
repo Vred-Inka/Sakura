@@ -69,13 +69,13 @@
     <ClCompile Include="Game\systems\ScoreSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\animation\Aniamtion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game\gameplay\VirusSpawner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\rendering\UIRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\animation\DestroyAnimation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -395,13 +395,16 @@
     <ClInclude Include="Game\systems\ScoreSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\animation\Aniamtion.h">
+    <ClInclude Include="Game\animation\Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\gameplay\VirusSpawner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\rendering\UIRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\animation\DestroyAnimation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

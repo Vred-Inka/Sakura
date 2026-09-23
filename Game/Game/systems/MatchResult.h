@@ -6,7 +6,7 @@ struct MatchResult
 {
 	bool m_HasMatches = false;
 
-	bool m_MatchedCells[GameConfig::BoardWidth][GameConfig::BoardHeight] = {};
+	bool m_Cells[GameConfig::BoardWidth][GameConfig::BoardHeight] = {};
 
 	int m_VirusCount = 0;
 	int m_PillCount = 0;

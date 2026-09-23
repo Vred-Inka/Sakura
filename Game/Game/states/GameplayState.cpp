@@ -35,6 +35,9 @@ void GameplayState::Update(float dt)
 {
 	switch (m_Phase)
 	{	
+	case  BoardPhase::DestroyAnimation:
+		UpdateDestroyAnimation(dt);
+		break;
 	case BoardPhase::Spawn:
 		UpdateSpawn();
 		break;
@@ -56,6 +59,19 @@ void GameplayState::Update(float dt)
 	default:
 		break;
 	}
+}
+
+void GameplayState::UpdateDestroyAnimation(float dt)
+{
+	m_DestroyAnimation.Update(dt);
+
+	if (!m_DestroyAnimation.IsFinished())
+		return;
+
+	m_ScoreSystem.Process(m_LastMatchResult);
+	m_Board.RemoveMatches(m_LastMatchResult);
+
+	m_Phase = BoardPhase::Gravity;
 }
 
 void GameplayState::UpdateSpawn()
@@ -85,23 +101,18 @@ void GameplayState::UpdateControl(float dt)
 
 void GameplayState::UpdateMatch()
 {
-	MatchResult matchResult = m_MatchingSystem.FindMatches(m_Board);
+	MatchResult result = m_MatchingSystem.FindMatches(m_Board);
 
-	if (matchResult.m_HasMatches)
+	if (result.m_HasMatches)
 	{
-		m_ScoreSystem.Process(matchResult);
-		m_Board.RemoveMatches(matchResult);
-		m_Phase = BoardPhase::Gravity;
+		m_LastMatchResult = result;
+		m_DestroyAnimation.Start();
+		m_Phase = BoardPhase::DestroyAnimation;
 	}
 	else
 	{
 		m_Phase = BoardPhase::Spawn;
-	}
-
-	if (m_Board.GetVirusCount() == 0)
-	{
-		m_Phase = BoardPhase::Victory;
-	}
+	}	
 }
 
 void GameplayState::UpdateGravity()
@@ -111,6 +122,12 @@ void GameplayState::UpdateGravity()
 	if (moved)
 	{
 		return;
+	}
+
+
+	if (m_Board.GetVirusCount() == 0)
+	{
+		m_Phase = BoardPhase::Victory;
 	}
 
 	m_Phase = BoardPhase::Match;
@@ -129,7 +146,7 @@ void GameplayState::UpdateVictory()
 void GameplayState::Render(Renderer& renderer)
 {
 	m_BackgroundRenderer.Draw(renderer);
-	m_BoardRenderer.Draw(renderer, m_Board);
+	m_BoardRenderer.Draw(renderer, m_Board, &m_LastMatchResult, m_DestroyAnimation.GetTime());
 	m_PillRenderer.Draw(renderer, m_ActivePill);
 	m_UIRenderer.Draw(renderer, m_Assets, m_ScoreSystem);
 }

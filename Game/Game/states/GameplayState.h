@@ -1,6 +1,7 @@
 #pragma once
 #include <Engine/framework/IState.h>
 
+#include "../animation/DestroyAnimation.h"
 #include "../gameplay/Board.h"
 #include "../gameplay/BoardPhase.h"
 #include "../gameplay/Pill.h"
@@ -11,6 +12,7 @@
 #include "../rendering/UIRenderer.h"
 #include "../systems/FallingSystem.h"
 #include "../systems/MatchingSystem.h"
+#include "../systems/MatchResult.h"
 #include "../systems/GravitySystem.h"
 #include "../systems/ScoreSystem.h"
 
@@ -26,11 +28,12 @@ public:
 	void Exit() override;
 
 	void Update(float dt) override;
-	void UpdateSpawn();
+	void UpdateDestroyAnimation(float dt);
 	void UpdateControl(float dt);
-	void UpdateMatch();
-	void UpdateGravity();
 	void UpdateGameOver();
+	void UpdateGravity();	
+	void UpdateMatch();
+	void UpdateSpawn();
 	void UpdateVictory();
 	
 	void Render(Renderer& renderer) override;
@@ -46,6 +49,9 @@ private:
 	AssetsManager& m_Assets;
 	Board m_Board{};
 	BoardPhase m_Phase = BoardPhase::Spawn;
+
+	MatchResult m_LastMatchResult;
+	DestroyAnimation m_DestroyAnimation;
 
 	VirusSpawner m_VirusSpawner{};
 

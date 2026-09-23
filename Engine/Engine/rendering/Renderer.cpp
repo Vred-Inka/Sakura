@@ -51,6 +51,7 @@ void Renderer::DrawTexture(const Texture& texture, float x, float y)
 	};
 
 	SDL_RenderTexture(m_Renderer, texture.GetNativeTexture(), nullptr, &dst);
+	SDL_SetTextureAlphaMod(texture.GetNativeTexture(), 255);
 }
 
 void Renderer::DrawTexture(const Texture& texture, float x, float y, float width, float height)
@@ -61,6 +62,12 @@ void Renderer::DrawTexture(const Texture& texture, float x, float y, float width
 	};
 
 	SDL_RenderTexture(m_Renderer, texture.GetNativeTexture(), nullptr, &dst);
+}
+
+void Renderer::DrawTexture(const Texture& texture, float x, float y, float width, float height, uint8_t alpha)
+{
+	SDL_SetTextureAlphaMod(texture.GetNativeTexture(), alpha);
+	DrawTexture(texture, x, y, width, height);
 }
 
 void Renderer::DrawTextureRotated(const Texture& texture, float x, float y, float width, float height, double angle)

@@ -20,6 +20,7 @@ public:
 
 	void DrawTexture(const Texture& texture, float x, float y);
 	void DrawTexture(const Texture& texture, float x, float y, float width, float height);
+	void DrawTexture(const Texture& texture, float x, float y, float width, float height, uint8_t alpha);
 	void DrawTextureRotated(const Texture& texture, float x, float y, float width, float height, double angle);
 
 	SDL_Renderer* GetNativeRenderer() { return m_Renderer; };

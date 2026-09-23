@@ -37,7 +37,7 @@ MatchResult MatchingSystem::FindMatches(Board& board)
 
                     for (int i = 0; i < length; i++)
                     {
-                        result.m_MatchedCells[col][start + i] = true;
+                        result.m_Cells[col][start + i] = true;
 
                         if (board.GetCell(col, start + i).GetType() == CellType::Virus)
                         {
@@ -86,7 +86,7 @@ MatchResult MatchingSystem::FindMatches(Board& board)
 
                     for (int i = 0; i < length; i++)
                     {
-                        result.m_MatchedCells[start + i][row] = true;
+                        result.m_Cells[start + i][row] = true;
                         if (board.GetCell(start + i, row).GetType() == CellType::Virus)
                         {
                             ++result.m_VirusCount;

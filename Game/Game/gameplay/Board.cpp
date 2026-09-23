@@ -176,7 +176,7 @@ void Board::RemoveMatches(const MatchResult& result)
 	{
 		for (int row = 0; row < GameConfig::BoardHeight; row++)
 		{
-			if (!result.m_MatchedCells[col][row])
+			if (!result.m_Cells[col][row])
 				continue;
 
 			BreakCellConnections(col, row);
