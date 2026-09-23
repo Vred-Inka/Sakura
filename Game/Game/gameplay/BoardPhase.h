@@ -7,6 +7,7 @@ enum class BoardPhase
 	Match,
 	DestroyAnimation,
 	Gravity,
-	GameOver,
-	Victory
+	Paused,
+	Victory,
+	GameOver
 };

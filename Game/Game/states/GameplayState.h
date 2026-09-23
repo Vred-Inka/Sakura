@@ -33,8 +33,11 @@ public:
 	void UpdateGameOver();
 	void UpdateGravity();	
 	void UpdateMatch();
+	void UpdatePaused();
 	void UpdateSpawn();
 	void UpdateVictory();
+
+	void TogglePause();
 	
 	void Render(Renderer& renderer) override;
 
@@ -47,22 +50,24 @@ public:
 private:
 	Pill m_ActivePill{};
 	AssetsManager& m_Assets;
-	Board m_Board{};
+
 	BoardPhase m_Phase = BoardPhase::Spawn;
+	BoardPhase m_PreviousPhase = BoardPhase::Spawn;
 
-	MatchResult m_LastMatchResult;
 	DestroyAnimation m_DestroyAnimation;
-
-	VirusSpawner m_VirusSpawner{};
 
 	BackgroundRenderer m_BackgroundRenderer;
 	BoardRenderer m_BoardRenderer;
 	PillRenderer m_PillRenderer;
 	UIRenderer m_UIRenderer;
+	VirusSpawner m_VirusSpawner{};
 
 	FallingSystem m_FallingSystem{};
 	MatchingSystem m_MatchingSystem{};
 	GravitySystem m_GravitySystem{};
 	ScoreSystem m_ScoreSystem{};
+
+	MatchResult m_LastMatchResult;
+	Board m_Board{};
 };
 

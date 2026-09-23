@@ -38,20 +38,23 @@ void GameplayState::Update(float dt)
 	case  BoardPhase::DestroyAnimation:
 		UpdateDestroyAnimation(dt);
 		break;
-	case BoardPhase::Spawn:
-		UpdateSpawn();
-		break;
 	case BoardPhase::Control:
 		UpdateControl(dt);
 		break;
-	case BoardPhase::Match:
-		UpdateMatch();
+	case BoardPhase::GameOver:
+		UpdateGameOver();
 		break;
 	case BoardPhase::Gravity:
 		UpdateGravity();
 		break;
-	case BoardPhase::GameOver:
-		UpdateGameOver();
+	case BoardPhase::Match:
+		UpdateMatch();
+		break;
+	case BoardPhase::Paused:
+		UpdatePaused();
+		break;
+	case BoardPhase::Spawn:
+		UpdateSpawn();
 		break;
 	case  BoardPhase::Victory:
 		UpdateVictory();
@@ -115,6 +118,12 @@ void GameplayState::UpdateMatch()
 	}	
 }
 
+void GameplayState::UpdatePaused()
+{
+	HandleInput();
+	// print paused lbl
+}
+
 void GameplayState::UpdateGravity()
 {
 	bool moved = m_GravitySystem.Apply(m_Board);
@@ -143,12 +152,30 @@ void GameplayState::UpdateVictory()
 	//Win();
 }
 
+void GameplayState::TogglePause()
+{
+	if (m_Phase == BoardPhase::Paused)
+	{
+		m_Phase = m_PreviousPhase;
+		return;
+	}
+
+	m_PreviousPhase = m_Phase;
+	m_Phase = BoardPhase::Paused;
+}
+
 void GameplayState::Render(Renderer& renderer)
 {
 	m_BackgroundRenderer.Draw(renderer);
 	m_BoardRenderer.Draw(renderer, m_Board, &m_LastMatchResult, m_DestroyAnimation.GetTime());
 	m_PillRenderer.Draw(renderer, m_ActivePill);
 	m_UIRenderer.Draw(renderer, m_Assets, m_ScoreSystem);
+
+	if (m_Phase == BoardPhase::Paused)
+	{
+		m_UIRenderer.DrawText(renderer, m_Assets, "       PAUSED",
+			GameConfig::BorderX, GameConfig::WindowHeight / 2.0f);
+	}
 }
 
 void GameplayState::HandleInput()
@@ -188,6 +215,11 @@ void GameplayState::HandleInput()
 		{
 			m_ActivePill.Rotate();
 		}
+	}
+
+	if (Input::IsKeyDown(Key::Pause))
+	{
+		TogglePause();
 	}
 }
 

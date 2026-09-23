@@ -31,6 +31,9 @@ namespace
 		case SDLK_ESCAPE:
 			return Key::Escape;
 
+		case SDLK_P:
+			return Key::Pause;
+
 		default:
 			return Key::Unknown;
 		}

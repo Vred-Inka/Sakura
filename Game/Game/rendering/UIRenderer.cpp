@@ -11,3 +11,8 @@ void UIRenderer::Draw(Renderer& renderer, AssetsManager& assets, const ScoreSyst
 	m_TextRenderer.DrawText(renderer, *assets.GetFont("Score"),
 		"Score: " + std::to_string(score.GetScore()), 20.0f, 20.0f);
 }
+
+void UIRenderer::DrawText(Renderer& renderer, AssetsManager& assets, const char* text, float x, float y)
+{
+	m_TextRenderer.DrawText(renderer, *assets.GetFont("Score"),	text, x, y);
+}

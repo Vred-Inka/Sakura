@@ -8,6 +8,7 @@ enum Key
 	Down,
 	Space,
 	Escape,
+	Pause,
 	Unknown
 };
 
